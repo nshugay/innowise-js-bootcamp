@@ -4,8 +4,206 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Books Shop</title>
+    <link rel="stylesheet" href="main.css">
+    <link
+    rel="icon"
+    type="image/png"
+    sizes="16x16"
+    href="#">
 </head>
 <body>
-    
+    <header class="header" id="header">
+        <div class="container header__container">
+            <a class="header__logo" href="#home">
+                <h3 class="h3">Books</h3>
+            </a>
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li class="nav__item nav__item_active">
+                        <a href="#home" class="nav__item-link">home</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="./explore.html" class="nav__item-link">explore</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#shop" class="nav__item-link">shop</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#sell" class="nav__item-link">sell your book</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#cart" class="nav__item-link">cart*</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main class="main" id="main">
+        <div class="container main__container">
+            <!--title-->
+            <section class="home section" id="home">
+                <div class="home__title">
+                    <h1 class="h1">Buy and sell your books <span class="accent-text">for the best prices</span></h1>
+                    <h4 class="h4">
+                        Find and read more your'll love, and keep track of the books you want to read.
+                        <br>Be part of the word's largeest community of book lovers on Goodreads.
+                    </h4>
+                    <div class="home__input">
+                        <form>
+                            <button type="submit"></button>
+                            <input type="text" placeholder="Search for Books…">
+                            <button type="submit"></button>
+                        </form>
+                    </div>
+                </div>
+                <div class="home__image">
+                   <img src="#" alt="Books Review">
+                </div>
+            </section>
+            <!--slider-->
+            <section class="main__carousel carousel section" id="home">
+                <div class="carousel__title">
+                    <h3 class="h3">Best Seller Books</h3>
+                </div>
+                <div class="carousel__cards">
+                    <!--cards-->
+                    <div class="card" id="card1">
+                        <div class="card__background">
+                            <img src="" alt="Books" class="card__image">
+                        </div>
+                        <div>
+                            <h4 class="h4 card__name">Mystery of the Lost Island</p>
+                            <div class="card__book-info">
+                                <p class="card__book-author-name">Jane Smith</p>
+                                <span>&nbsp;•&nbsp;</span>
+                                <div class="card__stars">
+                                    <div class="star star_filled"></div>
+                                    <div class="star star_filled"></div>
+                                    <div class="star star_filled"></div>
+                                    <div class="star star_unfilled"></div>
+                                    <div class="star star_unfilled"></div>
+                                </div>  
+                            </div>
+                            <h5 class="card__article">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</h5>
+                        </div>
+                        <button class="card__button button">
+                            <svg class="cart"></svg>
+                            <p class="h4">Add To Cart</p>
+                        </button>                        
+                    </div>
+                </div>
+                <!--slider-scope-->
+                <div class="carousel__box">
+                    <a href="#card1" class="carousel__click-scope">
+                        <div class="controls__icon">&nbsp;</div>
+                    </a>
+                     <a href="#card2" class="carousel__click-scope">
+                        <div class="controls__icon">&nbsp;</div>
+                    </a>
+                     <a href="#card3" class="carousel__click-scope">
+                        <div class="controls__icon">&nbsp;</div>
+                    </a>
+                     <a href="#card4" class="carousel__click-scope">
+                        <div class="controls__icon">&nbsp;</div>
+                    </a>
+                     <a href="#card5" class="carousel__click-scope">
+                        <div class="controls__icon">&nbsp;</div>
+                    </a>
+                </div>
+            </section>
+            <section class="explore section" id="explore">
+                <div class="explore__image">
+                    <img src="" alt="Books">
+                </div>
+                <div class="explore__content">
+                    <h2 class="explore__content-title">Find Your favorite <br>
+                        <span class="accent-text">book here!</span>
+                    </h2>
+                    <h4 class="h4">
+                       Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+                       Quo ad non reprehenderit. Reiciendis illo iusto incidunt distinctio exercitationem officiis dicta dolores
+                       dolorem ea! 
+                       Non saepe, voluptatum cupiditate beatae in dolore!
+                    </h4>
+                    <div class="explore__content-table">
+                        <div class="explore__content-table-item">
+                            <p class="num">800<span>+</span></p>
+                            <h4 class="h4">Book Listing</h4>
+                        </div>
+                        <div class="explore__content-table-item">
+                            <p class="num">550<span>+</span></p>
+                            <h4 class="h4">Register Users</h4>
+                        </div>
+                        <div class="explore__content-table-item">
+                            <p class="num">1200<span>+</span></p>
+                            <h4 class="h4">Books Sold</h4>
+                        </div>
+                    </div>
+                    <button class="explore__button button">
+                        <p class="h4">Explore Now</p>
+                    </button>    
+                </div>
+            </section>
+            <section class="awards" id="awards">
+                <div class="awards__content">
+                    <h3 class="h3">2025 National Book Awards for Fiction Shortlist</h3>
+                    <button class="explore__button button">
+                        <p class="h4">Explore Now</p>
+                    </button> 
+                </div>
+                <img src="" alt="Awards" class="awards__image">
+            </section>
+        </div>
+    </main>
+    <footer class="footer" id="footer">
+        <div class="container footer__container">
+            <section class="footer__navigation">
+                <div class="footer__navigation-item">
+                    <h3 class="h3">Books</h3>
+                    <h5 class="h5">Books Delivered. Imagination Unlimited.</h5>
+                </div>
+                <div class="footer__navigation-item" id="quick">
+                    <h4 class="h4">Quick Links</h4>
+                    <ul class="footer__links">
+                        <li class="h5">
+                            <a href="#home" class="footer__link">home</a>
+                        </li>
+                        <li class="h5">
+                            <a href="#home" class="footer__link">about us</a>
+                        </li>
+                        <li class="h5">
+                            <a href="#contact" class="footer__link">contact</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer__navigation-item" id="contact">
+                    <h4 class="h4">Contact</h4>
+                    <ul class="footer__links">
+                        <li class="h5">
+                            <a class="footer__link" href="mailto:nshugay1@gmail.com" target="_blank">Email: nshugay1@gmail.com</a>
+                        </li>
+                        <li class="h5">
+                            <a class="footer__link" href="tel:917061543815" target="_blank">Phone: +91 7061543815</a>
+                        </li>
+                        <li class="h5">
+                            <a class="footer__link href="https://www.google.by/maps/search/magic+forest/@50.0209795,18.3476421,6z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI0MTEwNi4wIKXMDSoASAFQAw%3D%3D" target="_blank">MMEC, Mullana - 133207</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer__navigation-item">
+                    <h4 class="h4">We Accept</h4>
+                    <ul class="footer__images">
+                        <img src="" alt="">
+                        <img src="" alt="">
+                        <img src="" alt="">
+                    </ul>
+                </div>
+            </section>
+            <section class="footer__area">
+                <h5 class="h5">© 2025 Books. All rights reserved.</h5>
+            </section>
+        </div>
+    </footer>
 </body>
+<script src="script.js"></script>
 </html>
