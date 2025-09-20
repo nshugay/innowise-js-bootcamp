@@ -13,6 +13,8 @@
   --color-filled-stars: #84CC16;
   --color-cards: #EEF2FF;
   --color-home: #E4E4E7;
+  --color-awards: #FEF9C3;
+
 
 
   --transition: 0.3s;
@@ -447,7 +449,6 @@ input {
 .explore__content-table-item {
     display: flex;
     flex-direction: column;
-    align-items: center;
 }
 
 .explore__content-table-item p {
@@ -467,4 +468,31 @@ input {
     background-color: var(--color-accent);
     height: 32px;
     width: 108px;
+}
+
+.awards {
+    background: var(--color-awards);
+}
+
+.awards__content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 282px;
+}
+
+.awards__content-items {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.awards__image {
+    min-width: 300px;
+    height: 300px;
+    border-radius: 12px;
+    background-image: url('./assets/img/award.png');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
