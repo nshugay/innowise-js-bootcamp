@@ -278,11 +278,11 @@ input {
 
 .carousel__gradient {
     position: relative;
-    left: 95%;
     z-index: 0;
-    background: linear-gradient(270deg, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
+    background: linear-gradient(270deg, #ffffff 0%, rgba(186, 40, 40, 0) 100%);
     height: 390px;
     width: 100px;
+    transform: translateX(-84px);
 }
 
 .card {
@@ -368,4 +368,27 @@ input {
 .card__button:hover {
     background: var(--color-ligth-accent);
     transition: var(--transition);
+}
+
+.carousel__box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 30px;
+    gap: 0px;
+    margin: 20px 0;
+}
+
+.controls__icon {
+    width: 9.6px;
+    height: 9.6px;
+    border-radius: 100%;
+    background-color: var(--color-unfilled-stars);
+    margin: 10px;
+}
+
+.controls__icon:hover {
+    transition: var(--transition);
+    background-color: var(--color-accent);
 }
