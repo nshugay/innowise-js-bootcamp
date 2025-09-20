@@ -55,7 +55,8 @@ body {
 }
 
 .home__container,
-.header__container {
+.header__container,
+.explore__container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -336,10 +337,6 @@ input {
     fill: var(--color-unfilled-stars);
 }
 
-.card__button {
-    height: 30px;
-}
-
 .card__article {
     width: 100%;
 }
@@ -360,12 +357,14 @@ input {
     height: 32px;
 }
 
-.card__button p {
+.card__button p,
+.explore__button p {
     font-family: var(--font-family-base);
     font-size: 13.8px;
 }
 
-.card__button:hover {
+.card__button:hover,
+.explore__button:hover {
     background: var(--color-ligth-accent);
     transition: var(--transition);
 }
@@ -377,7 +376,7 @@ input {
     width: 100%;
     height: 30px;
     gap: 0px;
-    margin: 20px 0;
+    margin: 15px 0;
 }
 
 .controls__icon {
@@ -385,10 +384,87 @@ input {
     height: 9.6px;
     border-radius: 100%;
     background-color: var(--color-unfilled-stars);
-    margin: 10px;
+    margin: 6px;
 }
 
 .controls__icon:hover {
     transition: var(--transition);
     background-color: var(--color-accent);
+}
+
+.price {
+    position: relative;
+    transform: translateY(-45px);
+    width: 58px;
+    height: 28px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    background: var(--color-cards);
+    text-align: center;
+    font-family: var(--font-family-bold);
+    color: var(--color-accent);
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0%;
+}
+
+.explore__image {
+    min-width: 400px;
+    height: 400px;
+    border-radius: 12px;
+    background-image: url('./assets/img/explorebooks.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.explore__content {
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 0 40px 0;
+}
+
+.h2 {
+    font-family: var(--font-family-bold);
+    font-size: 32px;
+    line-height: 48px;
+    vertical-align: middle;
+    text-transform: capitalize;
+}
+
+.explore__content-title {
+    margin: 10px 0;
+}
+
+.explore__content-table {
+    display: flex;
+    justify-content: space-between;
+    min-width: 390px; 
+}
+
+.explore__content-table-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.explore__content-table-item p {
+    font-family: var(--font-family-bold);
+    font-size: 24px;
+    line-height: 36px;
+    letter-spacing: 0%;
+    vertical-align: middle;
+}
+
+.explore__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background: var(--color-light);
+    background-color: var(--color-accent);
+    height: 32px;
+    width: 108px;
 }
