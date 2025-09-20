@@ -51,12 +51,16 @@ body {
 }
 
 .header__container {
+    max-height: 60px;
+}
+
+.home__container,
+.header__container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    max-height: 60px;
 }
 
 .nav__list {
@@ -95,8 +99,13 @@ body {
     transition: var(--transition);
 }
 
-.main {
-    background: var(--color-home);
+.cart path {
+    fill: var(--color-base);
+}
+
+.cart :hover {
+    fill: var(--color-accent);
+    transition: var(--transition);
 }
 
 .home {
@@ -106,6 +115,7 @@ body {
     align-items: center;
     padding-top: -10px;
     max-height: 580px;
+    background: var(--color-home);
 }
 
 .accent-text {
@@ -231,4 +241,131 @@ input {
     transform: rotate(6deg);
     width: 205px;
     height: 274px;
+}
+
+.carousel__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.carousel__wrapper {
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+    flex-wrap: nowrap;
+    width: 1200px;
+    height: 390px;
+}
+
+.carousel__title {
+    width: 100%;
+    text-align: center;
+    margin: 0 0 30px;
+}
+
+.carousel__cards {
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+    flex-wrap: nowrap;
+    max-width: 100%;
+    width: max-content;
+    gap: 40px;
+}
+
+.carousel__gradient {
+    position: relative;
+    left: 95%;
+    z-index: 0;
+    background: linear-gradient(270deg, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
+    height: 390px;
+    width: 100px;
+}
+
+.card {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 232px;
+    height: 390px;
+    padding: 16px;
+    border-radius: 12px;
+    background: var(--color-cards);
+}
+
+.card__background {
+    display: flex;
+    background-image: url('./assets/img/slider1.jpg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 200px;
+    min-height: 200px;
+    border-radius: 20px;
+}
+
+.card__content {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.card__name {
+    font-family: var(--font-family-bold);
+    font-size: 14px;
+    line-height: 31px;
+    width: 100%;
+}
+
+.card__book-info {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    color: var(--color-accent);
+    font-family: var(--font-family-base);
+    padding: 0 0 10px;
+}
+
+.star_filled path {
+    fill: var(--color-filled-stars);
+}
+
+.star_unfilled path {
+    fill: var(--color-unfilled-stars);
+}
+
+.card__button {
+    height: 30px;
+}
+
+.card__article {
+    width: 100%;
+}
+
+.button {
+    outline: none;
+    border: none;
+    border-radius: 4px;
+    color: var(--color-light);
+}
+
+.card__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background: var(--color-dark);
+    height: 32px;
+}
+
+.card__button p {
+    font-family: var(--font-family-base);
+    font-size: 13.8px;
+}
+
+.card__button:hover {
+    background: var(--color-ligth-accent);
+    transition: var(--transition);
 }
