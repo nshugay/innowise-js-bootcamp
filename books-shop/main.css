@@ -14,8 +14,8 @@
   --color-cards: #EEF2FF;
   --color-home-background: #E4E4E7;
   --color-awards-background: #FEF9C3;
-  --color-footer-background: black;
-
+  --color-footer-background: #000000;
+  --color-explore-header-background: #E9D5FF;
 
 
   --transition: 0.3s;
@@ -49,12 +49,19 @@ body {
 }
 
 .header {
-    background: var(--color-home-background);
     position: sticky;
 }
 
 .header__container {
     max-height: 60px;
+}
+
+.main__header {
+    background: var(--color-home-background);
+}
+
+.explore__header {
+   background: var(--color-explore-header-background); 
 }
 
 .home__container,
@@ -163,7 +170,7 @@ body {
     align-items: center;
     padding: 10px;
     height: 40px;
-    width: 300px;
+    width: 50%;
     border-radius: 6px;
     border: 1px solid #00062E32;
     background: var(--color-light);
@@ -180,10 +187,6 @@ body {
     border: none;
     padding: 1px 0 0 0;
     align-self: center;
-}
-
-.home__input input {
-    margin: 0 70px 0 0;
 }
 
 .search__item {
@@ -207,6 +210,7 @@ input {
     outline: none;
     background: transparent;
     border: none;
+    width: 100%;
 }
 
 .home__image {
@@ -519,7 +523,7 @@ input {
 
 .footer__navigation {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: flex-start;
     width: 100%;
     min-height: 185px;
@@ -594,4 +598,147 @@ input {
    background-image: url('./assets/img/bank3.png');
    width: 24px;
    border-radius: 3px;
+}
+
+.find {
+    background: var(--color-explore-header-background);
+    height: 282px;
+}
+
+.find__content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 282px;
+}
+
+.find__content-items {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.find__image {
+    min-width: 300px;
+    height: 300px;
+    border-radius: 12px;
+    background-image: url('./assets/img/award.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.find__input {
+    display: flex;
+    flex-direction: row;
+    outline: none;
+    align-items: center;
+    margin: 1.5rem 0 6rem;
+}
+
+.find__input-form {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px;
+    height: 40px;
+    width: 100%;
+    border-radius: 6px;
+    border: 1px solid #00062E32;
+    background: var(--color-light);
+    font-family: var(--font-family-base);
+    color: #00071B7F;
+}
+
+.cart__header,
+.cart__main {
+    background-color: rgba(122, 118, 118, 0.086);
+}
+
+.cart__content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cart__aside {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 760px;
+}
+
+.cart__list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 20px 0 0 0;
+    gap: 20px;
+}
+
+.cart__list-item {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 128px;
+    border-radius: 8px;
+    background: var(--color-light);
+    padding: 15px;
+    gap: 20px;
+}
+
+.order__image {
+    background-image: url('./assets/img/home1.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 75px;
+    height: 96px;
+    border-radius: 6px;
+}
+
+.cart__list-item-info {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.order__book-author-name {
+    color: rgba(0, 0, 0, 0.353);
+}
+
+.order__content {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.price__wrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 15px;
+}
+
+.cart__price {
+    text-align: center;
+    font-family: var(--font-family-bold);
+    color: var(--color-dark);
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0%;
+    width: 60px;
+    text-align: center;
+}
+
+.bin__wrapper {
+    cursor: pointer;
+}
+
+.bin__wrapper:hover path {
+    fill: red;
+    transition: var(--transition);
 }
