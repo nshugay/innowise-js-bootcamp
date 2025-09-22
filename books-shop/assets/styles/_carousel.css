@@ -1,0 +1,70 @@
+/*
+  Carousel
+*/
+
+.carousel__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.carousel__wrapper {
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+    flex-wrap: nowrap;
+    width: 1200px;
+    height: 390px;
+}
+
+.carousel__title {
+    width: 100%;
+    text-align: center;
+    margin: 0 0 30px;
+}
+
+.carousel__cards {
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+    flex-wrap: nowrap;
+    max-width: 100%;
+    width: max-content;
+    gap: 40px;
+}
+
+.carousel__gradient {
+    position: relative;
+    z-index: 0;
+    background: linear-gradient(270deg, #ffffff 0%, rgba(186, 40, 40, 0) 100%);
+    height: 390px;
+    width: 100px;
+    transform: translateX(-84px);
+}
+
+
+
+.carousel__box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 30px;
+    gap: 0px;
+    margin: 15px 0;
+}
+
+.controls__icon {
+    width: 9.6px;
+    height: 9.6px;
+    border-radius: 100%;
+    background-color: var(--color-unfilled-stars);
+    margin: 6px;
+}
+
+.controls__icon:hover {
+    transition: var(--transition);
+    background-color: var(--color-accent);
+}

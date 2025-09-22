@@ -1,0 +1,62 @@
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  font-size: 12px;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-family-base);
+  color: var(--color-dark);
+  background-color: var(--color-light);
+  animation: contentLoad var(--transition) ease-in-out;
+}
+
+.container {
+  margin-inline: auto;
+  max-width: 1265px;
+  padding: 20px 65px;
+}
+
+/*
+  Headings
+*/
+
+.h1, h1 {
+    font-size: 4.67rem;
+    font-family: var(--font-family-bold);
+    line-height: 130%;
+    padding: 1rem 0;
+}
+
+.h2, h2 {
+    font-family: var(--font-family-bold);
+    font-size: 32px;
+    line-height: 48px;
+    vertical-align: middle;
+    text-transform: capitalize;
+}
+
+.h3, h3 {
+    font-size: 2rem;
+    font-family: "Segoe-Bold";
+    color: var(--color-base);
+}
+
+.h4, h4 {
+    font-size: 1.33rem;
+    font-family: "Segoe-Light";
+    letter-spacing: 0.6px;
+}
+
+a,
+button,
+label,
+input,
+textarea,
+select,
+svg * {
+  transition: var(--transition);
+}

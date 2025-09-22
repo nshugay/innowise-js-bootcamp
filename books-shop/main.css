@@ -1,1 +1,183 @@
-@import url(./assets/normalize/_normalize.css);
+@import url(./assets/styles/_normalize.css);
+@import url(./assets/styles/_fonts.css);
+@import url(./assets/styles/_utils.css);
+@import url(./assets/styles/_header.css);
+@import url(./assets/styles/_home.css);
+@import url(./assets/styles/_globals.css);
+@import url(./assets/styles/_carousel.css);
+@import url(./assets/styles/_cards.css);
+@import url(./assets/styles/_explore.css);
+@import url(./assets/styles/_awards.css);
+@import url(./assets/styles/_footer.css);
+@import url(./assets/styles/_findexplore.css);
+@import url(./assets/styles/_cart.css);
+
+/*
+  Colors
+*/
+
+:root {
+  --color-light: #FFFFFF;
+  --color-dark: #18181B;
+  --color-transparent: #00071B7F;
+  --color-base: #1E1B4B;
+  --color-accent: #6366F1;
+  --color-ligth-accent: #818CF8;
+  --color-unfilled-stars: #C7D2FE;
+  --color-filled-stars: #84CC16;
+  --color-cards: #EEF2FF;
+  --color-home-background: #E4E4E7;
+  --color-awards-background: #FEF9C3;
+  --color-footer-background: #000000;
+  --color-explore-header-background: #E9D5FF;
+  --color-circle: #FF0000;
+
+  --transition: 0.3s;
+
+  --box-shadow: 0px 5px 6px -7px rgba(34, 60, 80, 0.45);
+}
+
+/*
+  Fonts
+*/
+
+:root {
+  --font-family-base: "Segoe";
+  --font-family-bold: "Segoe-Bold";
+  --font-family-footer: "Arial";
+  --font-family-light: "Segoe-Light";
+}
+
+/*
+  Basic Wrappers
+*/
+
+.home__container,
+.header__container,
+.explore__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+/*
+  Basic Inputs
+*/
+
+.home__input {
+    display: flex;
+    flex-direction: row;
+    outline: none;
+    align-items: center;
+    margin: 1.5rem 0 6rem;
+}
+
+.home__input-form {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    height: 40px;
+    width: 50%;
+    border-radius: 6px;
+    border: 1px solid #00062E32;
+    background: var(--color-light);
+    font-family: var(--font-family-base);
+    color: #00071B7F;
+}
+
+.search,
+.search__item {
+    width: 15px;
+    height: 15px;
+    outline: none;
+    background: transparent;
+    border: none;
+    padding: 1px 0 0 0;
+    align-self: center;
+}
+
+.search__item {
+    margin: 0 0 10px 0;
+}
+
+.search svg path {
+    fill: #0006177f;
+}
+
+.search__item svg path {
+    fill: var(--color-accent);
+}
+
+.search__item svg path:hover {
+    fill: var(--color-ligth-accent);
+    transition: var(--transition);
+}
+
+input {
+    outline: none;
+    background: transparent;
+    border: none;
+    width: 100%;
+}
+
+/*
+  Basic Buttons
+*/
+
+.button {
+    outline: none;
+    border: none;
+    border-radius: 4px;
+    color: var(--color-light);
+}
+
+.card__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background: var(--color-dark);
+    height: 32px;
+}
+
+.explore__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background: var(--color-light);
+    background-color: var(--color-accent);
+    height: 32px;
+    width: 108px;
+}
+
+.card__button:hover,
+.explore__button:hover {
+    background: var(--color-ligth-accent);
+    transition: var(--transition);
+}
+
+.card__button p,
+.explore__button p {
+    font-family: var(--font-family-base);
+    font-size: 13.8px;
+}
+
+/*
+  Stars
+*/
+
+.star_filled path {
+    fill: var(--color-filled-stars);
+}
+
+.star_unfilled path {
+    fill: var(--color-unfilled-stars);
+}
+
+
