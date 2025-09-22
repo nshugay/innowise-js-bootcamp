@@ -143,6 +143,8 @@ input {
     gap: 10px;
     background: var(--color-dark);
     height: 32px;
+        font-family: var(--font-family-base);
+    font-size: 13.8px;
 }
 
 .explore__button {
@@ -154,18 +156,31 @@ input {
     background-color: var(--color-accent);
     height: 32px;
     width: 108px;
+    font-family: var(--font-family-base);
+    font-size: 13.8px;
+}
+
+.cart__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background: var(--color-dark);
+    height: 32px;
+    width: 100%;
+    font-family: var(--font-family-base);
+    font-size: 13.8px;
+}
+
+.cart__button:hover {
+    background: rgb(41, 207, 71);
+    transition: var(--transition);
 }
 
 .card__button:hover,
 .explore__button:hover {
     background: var(--color-ligth-accent);
     transition: var(--transition);
-}
-
-.card__button,
-.explore__button {
-    font-family: var(--font-family-base);
-    font-size: 13.8px;
 }
 
 /*
