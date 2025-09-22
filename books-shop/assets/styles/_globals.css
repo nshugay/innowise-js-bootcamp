@@ -14,6 +14,10 @@ body {
   animation: contentLoad var(--transition) ease-in-out;
 }
 
+main {
+    min-height: 100vh;
+}
+
 .container {
   margin-inline: auto;
   max-width: 1265px;
@@ -59,4 +63,12 @@ textarea,
 select,
 svg * {
   transition: var(--transition);
+}
+
+.hidden {
+    display: none;
+}
+
+.unvisible {
+    visibility: hidden;
 }

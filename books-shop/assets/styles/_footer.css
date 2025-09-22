@@ -3,6 +3,7 @@
     background: var(--color-footer-background);
     color: var(--color-light);
     font-family: var(--font-family-footer);
+    position: sticky;
 }
 
 .footer__container {
