@@ -81,17 +81,17 @@
 }
 
 .bank1 {
-   background-image: url('/assets/img/bank1.png');
+   background-image: url('../img/bank1.png');
    width: 73px;
 }
 
 .bank2 {
-   background-image: url('/assets/img/bank2.png');
+   background-image: url('../img/bank2.png');
    width: 40px;
 }
 
 .bank3 {
-   background-image: url('/assets/img/bank3.png');
+   background-image: url('../img/bank3.png');
    width: 24px;
    border-radius: 3px;
 }

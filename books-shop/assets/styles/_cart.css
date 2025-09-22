@@ -55,7 +55,7 @@
 }
 
 .order__image {
-    background-image: url('/assets/img/home1.png');
+    background-image: url('../img/home1.png');
     background-repeat: no-repeat;
     background-size: cover;
     width: 75px;
@@ -152,22 +152,3 @@
     padding: 15px 0 0;
 }
 
-.cart__button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    background: var(--color-dark);
-    height: 32px;
-    width: 100%;
-}
-
-.cart__button p {
-    font-family: var(--font-family-base);
-    font-size: 13.8px;
-}
-
-.cart__button:hover {
-    background: rgb(41, 207, 71);
-    transition: var(--transition);
-}
