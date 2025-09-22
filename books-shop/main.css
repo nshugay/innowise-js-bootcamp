@@ -162,8 +162,8 @@ input {
     transition: var(--transition);
 }
 
-.card__button p,
-.explore__button p {
+.card__button,
+.explore__button {
     font-family: var(--font-family-base);
     font-size: 13.8px;
 }

@@ -12,7 +12,7 @@
 
 .card__background {
     display: flex;
-    background-image: url('/assets/img/slider1.jpg');
+    background-image: url('../img/slider1.jpg');
     background-repeat: no-repeat;
     background-size: contain;
     width: 200px;

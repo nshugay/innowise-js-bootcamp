@@ -55,7 +55,7 @@
 }
 
 .order__image {
-    background-image: url('/assets/img/home1.png');
+    background-image: url('../img/home1.png');
     background-repeat: no-repeat;
     background-size: cover;
     width: 75px;
