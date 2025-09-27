@@ -13,10 +13,11 @@
 .carousel__wrapper {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     overflow: hidden;
     flex-wrap: nowrap;
     width: 1200px;
-    height: 390px;
+    height: 395px;
 }
 
 .carousel__title {
@@ -28,11 +29,13 @@
 .carousel__cards {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     overflow: hidden;
     flex-wrap: nowrap;
     max-width: 100%;
     width: max-content;
     gap: 40px;
+    padding: 2px 0;
 }
 
 .carousel__gradient {
@@ -43,8 +46,6 @@
     width: 100px;
     transform: translateX(-84px);
 }
-
-
 
 .carousel__box {
     display: flex;

@@ -31,6 +31,7 @@
   --color-footer-background: #000000;
   --color-explore-header-background: #E9D5FF;
   --color-circle: #FF0000;
+  --color-active-button: rgb(42, 196, 42);
 
   --transition: 0.3s;
 
@@ -52,14 +53,18 @@
   Basic Wrappers
 */
 
-.home__container,
 .header__container,
-.explore__container {
+.explore__container, 
+.find__container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     width: 100%;
+}
+
+.find__container {
+    padding-top: 5rem;
 }
 
 /*
@@ -143,8 +148,9 @@ input {
     gap: 10px;
     background: var(--color-dark);
     height: 32px;
-        font-family: var(--font-family-base);
+    font-family: var(--font-family-base);
     font-size: 13.8px;
+    user-select: none;
 }
 
 .explore__button {
@@ -159,7 +165,9 @@ input {
     font-family: var(--font-family-base);
     font-size: 13.8px;
 }
-
+.button { 
+    transition: var(--transition);
+}
 .cart__button {
     display: flex;
     justify-content: center;
@@ -172,15 +180,21 @@ input {
     font-size: 13.8px;
 }
 
-.cart__button:hover {
-    background: rgb(41, 207, 71);
-    transition: var(--transition);
+@media (hover: hover) {         
+    .cart__button:hover {
+        background: var(--color-active-button);
+        transform: translateY(-0.2rem);
+    }
+
+    .explore__button:hover {
+        background: var(--color-ligth-accent);
+        transform: translateY(-0.2rem);
+    }
 }
 
-.card__button:hover,
-.explore__button:hover {
-    background: var(--color-ligth-accent);
-    transition: var(--transition);
+.card__button:focus,
+.card__button:active {
+    background: var(--color-active-button);
 }
 
 /*
@@ -194,5 +208,3 @@ input {
 .star_unfilled path {
     fill: var(--color-unfilled-stars);
 }
-
-
