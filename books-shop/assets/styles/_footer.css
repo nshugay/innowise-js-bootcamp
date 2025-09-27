@@ -15,6 +15,7 @@
     margin-inline: auto;
     max-width: 1265px;
     padding: 20px 65px;
+    text-wrap: wrap;
 }
 
 .footer__navigation {

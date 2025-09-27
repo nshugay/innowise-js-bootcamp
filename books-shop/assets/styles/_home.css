@@ -13,25 +13,34 @@
     color: var(--color-accent);
 }
 
+.home__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding-top: 10rem !important;
+}
+
 .home__title {
-    max-width: 55%;
+    width: 100%;
 }
 
 .home__title h1 {
     margin: 0 0 1.5rem;
 }
 
+
 .home__image {
     display: block;
     padding: 0px 0px 0 0;
     align-items: center;
+    max-height: 350px;
 }
 
 .home__image1 {
     position: relative;
-    right: 120px;
-    top: 230px;
-    Width: 240px;
+    width: 270px;
     height: 320px;
     border-radius: 10px;
     z-index: 5;
@@ -41,8 +50,8 @@
     position: relative;
     border-radius: 10px;
     z-index: 4;
-    top: -75px;
-    left: -95px;
+    top: -300px;
+    left: 20px;
     transform: rotate(3deg);
     width: 222px;
     height: 295px;
@@ -52,9 +61,27 @@
     position: relative;
     border-radius: 10px;
     z-index: 3;
-    top: -360px;
-    left: -70px;
+    top: -570px;
+    left: 50px;
     transform: rotate(6deg);
     width: 205px;
     height: 274px;
+}
+
+.home__image:hover .home__image1 {
+    transform: translateY(-0.1rem);
+    transition: var(--transition);
+    transform: rotate(2deg);
+}
+
+.home__image:hover .home__image2 {
+    transform: translateY(-0.1rem);
+    transform: rotate(7deg);
+    transition: var(--transition);
+}
+
+.home__image:hover .home__image3 {
+    transform: translateY(-0.1rem);
+    transform: rotate(14deg);
+    transition: var(--transition);
 }

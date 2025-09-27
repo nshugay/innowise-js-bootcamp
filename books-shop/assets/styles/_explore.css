@@ -10,14 +10,16 @@
 
 .explore__content {
     display: flex;
-    width: 50%;
+    width: 100%;
     flex-direction: column;
     justify-content: space-between;
     gap: 20px;
     padding: 0 40px 0;
+    margin: 0 0 0 6rem;
 }
 
 .explore__content-title {
+    width: 350px;
     margin: 10px 0;
 }
 
