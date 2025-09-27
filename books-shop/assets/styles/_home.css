@@ -14,16 +14,16 @@
 }
 
 .home__container {
-        display: flex;
+    display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    padding: 10rem 5.6rem 2rem !important;
+    padding-top: 10rem !important;
 }
 
 .home__title {
-    max-width: 55%;
+    width: 100%;
 }
 
 .home__title h1 {
@@ -40,7 +40,7 @@
 
 .home__image1 {
     position: relative;
-    Width: 230px;
+    width: 270px;
     height: 320px;
     border-radius: 10px;
     z-index: 5;
@@ -71,16 +71,17 @@
 .home__image:hover .home__image1 {
     transform: translateY(-0.1rem);
     transition: var(--transition);
+    transform: rotate(2deg);
 }
 
 .home__image:hover .home__image2 {
     transform: translateY(-0.1rem);
-    transform: rotate(6deg);
+    transform: rotate(7deg);
     transition: var(--transition);
 }
 
 .home__image:hover .home__image3 {
-        transform: translateY(-0.1rem);
-    transform: rotate(12deg);
+    transform: translateY(-0.1rem);
+    transform: rotate(14deg);
     transition: var(--transition);
 }

@@ -23,5 +23,5 @@
     border-radius: 12px;
     background-image: url('../img/award.png');
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
 }

@@ -55,6 +55,9 @@
 /**
   Cart Styles
 */
+#cart-icon {
+    display: none;
+}
 
 .cart path {
     fill: var(--color-base);

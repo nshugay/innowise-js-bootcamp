@@ -6,15 +6,17 @@
 
 .find__content {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     min-height: 282px;
+    width: 100%;
 }
 
 .find__content-items {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    width: fit-content;
 }
 
 .find__image {

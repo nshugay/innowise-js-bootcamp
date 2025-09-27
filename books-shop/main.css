@@ -11,6 +11,7 @@
 @import url(./assets/styles/_footer.css);
 @import url(./assets/styles/_findexplore.css);
 @import url(./assets/styles/_cart.css);
+@import url(./assets/styles/_media.css);
 
 /*
   Colors
@@ -158,13 +159,18 @@ input {
     justify-content: center;
     align-items: center;
     gap: 10px;
-    background: var(--color-light);
+    color: var(--color-light);
     background-color: var(--color-accent);
     height: 32px;
     width: 108px;
     font-family: var(--font-family-base);
     font-size: 13.8px;
 }
+
+.explore__button a {
+    color: var(--color-light);
+}
+
 .button { 
     transition: var(--transition);
 }
