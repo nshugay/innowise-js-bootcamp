@@ -8,15 +8,33 @@
     padding: 16px;
     border-radius: 12px;
     background: var(--color-cards);
+    cursor: pointer;
+    box-shadow: var(--box-shadow);
+    transition: all .2s ease-in-out;
+}
+
+.card:hover {
+    background: var(--color-cards);
+    transform: translateY(-0.3rem);
+}
+
+.card:hover .card__button {
+    background: var(--color-ligth-accent);
+}
+
+.card:hover .card__button:active,
+.card:hover .card__button:focus {
+    background: var(--color-active-button);
 }
 
 .card__background {
-    display: flex;
-    background-image: url('../img/slider1.jpg');
     background-repeat: no-repeat;
-    background-size: contain;
-    width: 200px;
-    min-height: 200px;
+    background-size: cover;
+    object-fit: cover;
+    background-position: center;
+    overflow: clip;
+    min-width: 200px;
+    max-height: 200px;
     border-radius: 20px;
 }
 
