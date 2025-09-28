@@ -143,3 +143,57 @@ const implementThreeMethods = (arr2) => {
 };
 
 console.log(implementThreeMethods(arr2));
+
+
+`Объекты:
+
+1. Создай объект book с полями: title, author, year.
+2. Выведи строку: "Название: <title>, Автор: <author>".
+3. Измени поле year на другое значение.
+4. Добавь поле genre, если его нет.
+5. Создай массив из 3 объектов книг. Напиши функцию, которая выводит названия всех книг.
+`
+
+const book = {
+    title: "1984",
+    author: "Джордж Оруэлл",
+    year: 2025,
+};
+
+console.log(`Название: ${book.title}, Aвтор: ${book.author}`);
+
+book.year = 1949;
+
+// console.log(book);
+
+if (!book.genre) {
+    book.genre = 'антиутопия';
+};
+
+// console.log(book);
+
+const myBooks = [
+    book,
+  {
+    title: "Наруто",
+    author: "Масаши Кишимото",
+    year: 1999,
+    genre: "экшен",
+  },
+  {
+    title: "Мир, полный демонов: Наука - как свеча во тьме",
+    author: "Карл Саган",
+    year: 1995,
+    genre: "биография",
+  }
+];
+
+// console.log(books)
+
+const getNames = (books) => {
+    books.forEach(book => {
+        console.log(`Название: ${book.title}`)
+    });
+}
+
+getNames(myBooks);
