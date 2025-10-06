@@ -262,6 +262,58 @@ const generateCards = (book) => {  // book - объект с свойствам�
     return card;
 };
 
+
+if (window.location.pathname.endsWith('cart.html')) {
+
+    const generateCartItem = (i) => {
+        const cartSection = document.querySelector('.cart__list');
+        cartSection.innerHTML = '';
+
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        cart.forEach((book, i) => {
+
+            const cartItem = document.createElement('li');
+            cartItem.className = 'cart__list-item';
+            cartItem.innerHTML = `
+            <img class="order__image" src="${book.image}" alt="${book.title}">
+            <div class="cart__list-item-info">
+                <div class="order__content">
+                    <p class="h4 order__name">${book.title}</p>
+                    <p class="order__book-author-name">${book.author}</p>
+                    <div class="card__stars">${renderStars(book.stars)}</div>
+                </div>
+                <div class="price__wrapper">
+                    <span class="cart__price">
+                        <span class="item-currency-value">$</span>
+                        <span class="item-price-value">${book.price.toFixed(2)}</span>
+                    </span>
+                        <div class="bin__wrapper">
+                            <svg class="bin" width="19" height="23" viewBox="0 0 19 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6.5293 0.435791C6.24398 0.435791 6.01367 0.666104 6.01367 0.951416C6.01367 1.23673 6.24398 1.46704 6.5293 1.46704H11.6855C11.9709 1.46704 12.2012 1.23673 12.2012 0.951416C12.2012 0.666104 11.9709 0.435791 11.6855 0.435791H6.5293ZM2.23242 2.84204C1.00008 2.84204 -0.00195312 3.84407 -0.00195312 5.07642C-0.00195312 6.30876 1.00008 7.31079 2.23242 7.31079H15.4668V18.1389C15.4668 19.7494 14.1554 21.0608 12.5449 21.0608H5.66992C4.05945 21.0608 2.74805 19.7494 2.74805 18.1389V9.20142C2.74805 8.9161 2.51773 8.68579 2.23242 8.68579C1.94711 8.68579 1.7168 8.9161 1.7168 9.20142V18.1389C1.7168 20.3183 3.49055 22.092 5.66992 22.092H12.5449C14.7243 22.092 16.498 20.3183 16.498 18.1389V7.24902C17.4812 7.01527 18.2168 6.13173 18.2168 5.07642C18.2168 3.84407 17.2148 2.84204 15.9824 2.84204H2.23242ZM2.23242 3.87329H15.9824C16.6459 3.87329 17.1855 4.41298 17.1855 5.07642C17.1855 5.73985 16.6459 6.27954 15.9824 6.27954H2.23242C1.56898 6.27954 1.0293 5.73985 1.0293 5.07642C1.0293 4.41298 1.56898 3.87329 2.23242 3.87329ZM6.70117 9.71704C6.41586 9.71704 6.18555 9.94735 6.18555 10.2327V18.1389C6.18555 18.4242 6.41586 18.6545 6.70117 18.6545C6.98648 18.6545 7.2168 18.4242 7.2168 18.1389V10.2327C7.2168 9.94735 6.98648 9.71704 6.70117 9.71704ZM11.5137 9.71704C11.2284 9.71704 10.998 9.94735 10.998 10.2327V18.1389C10.998 18.4242 11.2284 18.6545 11.5137 18.6545C11.799 18.6545 12.0293 18.4242 12.0293 18.1389V10.2327C12.0293 9.94735 11.799 9.71704 11.5137 9.71704Z" fill="#52525B"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            `
+            cartSection.appendChild(cartItem);
+
+            const deleteButton = cartItem.querySelector('.bin__wrapper'); // Или .bin, в зависимости от селектора
+            deleteButton.addEventListener('click', () => {
+                cart.splice(i, 1);
+                localStorage.setItem('cart', JSON.stringify(cart));
+                generateCartItem();
+                updateCartIndicator();
+            });
+        });        
+    };
+    
+    // localStorage.clear()
+
+    window.onload = generateCartItem;
+};
+
+
 window.addEventListener('load', () => {
     updateCartIndicator();
 });
