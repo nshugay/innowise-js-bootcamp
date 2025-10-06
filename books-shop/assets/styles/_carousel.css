@@ -19,6 +19,7 @@
     width: 100%;
     /*max-width: 1135px;*/
     /*height: 395px;*/
+    transition: transform 0.3s ease;
 }
 
 .carousel__title {
@@ -36,7 +37,7 @@
     min-width: 1500px;
     gap: 40px;
     padding: 2px 0;
-    transition: var(--transition) ease-in-out;
+    transition: transform 0.3s ease;
 }
 
 .carousel__gradient {
@@ -58,7 +59,15 @@
     height: 30px;
     gap: 0px;
     margin: 15px 0;
-    cursor: grab;
+    cursor: pointer;
+}
+
+.control_active {
+    width: 9.6px;
+    height: 9.6px;
+    border-radius: 100%;
+    margin: 6px;
+    background-color: var(--color-accent) !important;
 }
 
 .controls__icon {
@@ -69,7 +78,8 @@
     margin: 6px;
 }
 
-.controls__icon:hover {
+.controls__icon:hover,
+.controls__icon:active {
     transition: var(--transition);
     background-color: var(--color-accent);
 }

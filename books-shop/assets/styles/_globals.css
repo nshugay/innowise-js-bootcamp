@@ -55,6 +55,22 @@ main {
     letter-spacing: 0.6px;
 }
 
+.oops {
+    font-family: var(--font-family-bold);
+    font-size: 32px;
+    line-height: 32px;
+    color: rgba(248, 109, 167, 0.6) !important;
+    text-align: flex-start;
+    text-wrap: wrap !important;
+}
+
+.oops__try {
+    font-size: 1rem;
+    font-family: "Segoe-Light";
+    letter-spacing: 0.6px;
+    color: var(--color-dark) !important;
+}
+
 a,
 button,
 label,

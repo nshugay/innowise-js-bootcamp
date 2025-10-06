@@ -90,14 +90,15 @@
 }
 
 .cart__price {
-    text-align: center;
+    display: flex;
+    justify-content: center;
     font-family: var(--font-family-bold);
     color: var(--color-dark);
     font-size: 16px;
     line-height: 24px;
-    letter-spacing: 0%;
     width: 60px;
     text-align: center;
+
 }
 
 .bin__wrapper {
