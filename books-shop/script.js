@@ -6,7 +6,7 @@ const books = [
     {
         title: "Cooking Made Easy",
         author: "Emily Clark",
-        price: 9.99,
+        price: 19.99,
         stars: 4,
         description: "Simple and delicious recipes for everyday cooking.",
         image: './assets/img/book-item1.jpg',
@@ -15,7 +15,7 @@ const books = [
     {
         title: "Mystery of the Lost Island",
         author: "Jane Smith",
-        price: 14.99,
+        price: 24.99,
         stars: 2,
         description: "A gripping mystery novel that keeps you guessing till the end.",
         image: './assets/img/book-item2.png',
@@ -42,7 +42,7 @@ const books = [
         {
         title: "Cooking Made Easy",
         author: "Emily Clark",
-        price: 9.99,
+        price: 19.99,
         stars: 4,
         description: "Simple and delicious recipes for everyday cooking.",
         image: './assets/img/book-item1.jpg',
@@ -60,7 +60,7 @@ const books = [
     {
         title: "Shadows of Doubt",
         author: "Emma Watson",
-        price: 22.99,
+        price: 32.99,
         stars: 3,
         description: "A detective novel filled with twists and unexpected turns.",
         image: './assets/img/book-item3.jpg',
@@ -69,7 +69,7 @@ const books = [
             {
         title: "The Silent Forest",
         author: "David Kim",
-        price: 29.99,
+        price: 9.99,
         stars: 2,
         description: "A chilling suspense story set in a haunted woodland.",
         image: './assets/img/book-item4.jpg',
@@ -406,6 +406,90 @@ if (window.location.pathname.endsWith('index.html')) {
 
     initializeCarousel(bestSellerContainer);    
     initializeCarousel(newReleasesContainer);
+};
+
+// логика для поиска
+const searchResultsSection = document.querySelector('.search__container');
+const searchResultsContainer = document.getElementById('searched');
+
+const filterBooksByQuery = (query) => {
+    if (!query) return [];
+    query = query.toLowerCase();
+
+    return books.filter(book => {
+        return book.title.toLowerCase().includes(query) ||
+               book.author.toLowerCase().includes(query) ||
+               book.description.toLowerCase().includes(query);
+    });
+};
+
+// функция подсветки совпадений в тексте
+const highlightText = (text, query) => {
+    if (!query) return text;
+    
+    const escapedQuery = query.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+    const regex = new RegExp(`(${escapedQuery})`, 'gi');
+
+    return text.replace(regex, '<mark>\$1</mark>');
+};
+
+
+const showSearchResults = (query) => {
+    if (!query) {
+        // cкрыть контейнер 
+        searchResultsSection.style.display = 'none';
+        searchResultsContainer.innerHTML = '';
+        return;
+    };
+
+    const filteredBooks = filterBooksByQuery(query);
+
+    searchResultsContainer.innerHTML = '';
+
+    if (filteredBooks.length === 0) {
+        searchResultsContainer.innerHTML = `<li class="h3 oops">Oops! Nothing found for your request :( <br> <span class="oops__try">Try searching using other words.</span></li>`;
+    } else {
+        // добавляем карточки для каждого найденного
+        filteredBooks.forEach(book => {
+            const card = generateCards(book);
+            searchResultsContainer.appendChild(card);
+
+            // подсветка совпадений в карточке
+            const titleEl = card.querySelector('.card__name');
+            const authorEl = card.querySelector('.card__book-author-name');
+            const descEl = card.querySelector('.card__description');
+
+            if (titleEl) {
+                if (!titleEl.dataset.original) titleEl.dataset.original = titleEl.textContent;
+                titleEl.innerHTML = highlightText(titleEl.dataset.original, query);
+            };
+
+            if (authorEl) {
+                if (!authorEl.dataset.original) authorEl.dataset.original = authorEl.textContent;
+                authorEl.innerHTML = highlightText(authorEl.dataset.original, query);
+            };
+
+            if (descEl) {
+                if (!descEl.dataset.original) descEl.dataset.original = descEl.textContent;
+                descEl.innerHTML = highlightText(descEl.dataset.original, query);
+            };
+        });
+    };
+
+    // показать контейнер
+    searchResultsSection.style.display = 'block';
+    // инициализировать карусель для результатов
+    initializeCarousel(searchResultsContainer);
+};
+
+// логика для инпута
+const searchInput = document.getElementById('search-input');
+
+if (searchInput) {
+    searchInput.addEventListener('input', () => {
+        const query = searchInput.value.trim();
+        showSearchResults(query);
+    });
 };
 
 

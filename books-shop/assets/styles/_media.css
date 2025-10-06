@@ -113,6 +113,11 @@
     #footer-logo {
         display: none;
     }
+
+    .oops {
+        font-size: 17px;
+        line-height: 20px;
+    }
 }
 
 
