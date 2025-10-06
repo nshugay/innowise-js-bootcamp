@@ -142,8 +142,64 @@ const renderStars = (stars) => {
 
   return starsHTML;
 };
+/*
+undateCounters = () => {
+    updateCartIndicator();
+    updateTotalSum();
+    updateCartCount();
+};
+*/
 
+// обновление индикатора в хедере
+updateCartIndicator = () => {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const totalQuantity = cart.length;
 
+    const indicator = document.querySelector('.circle__num');
+    //const circle = document.querySelector('.circle');
+  
+    if (indicator) {
+        indicator.innerHTML = '';
+        indicator.textContent = totalQuantity;
+    };
+
+    updateTotalSum();
+    updateCartCount();
+};
+
+// функция для обновления итога покупки с четом shopping
+updateTotalSum = () => {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    const subTotalSum = cart.reduce((sum, book) => sum + book.price, 0); 
+    const subTotalElement = document.querySelector('.subtotal'); 
+    
+    if (subTotalElement) {
+        subTotalElement.textContent = `$${subTotalSum.toFixed(2)}`; 
+    };
+
+    const shoppingElement = document.querySelector('.shopping');
+    const totalElement = document.querySelector('.total');
+    const shoppingCost = shoppingElement ? parseFloat(shoppingElement.textContent) || 0 : 0;
+    const total = subTotalSum + shoppingCost;
+
+    if (totalElement) {
+        totalElement.textContent = `$${total.toFixed(2)}`;
+    };
+};
+
+// функция для обновления счетчика товаров в корзине
+updateCartCount = () => {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const count = cart.length;
+    
+    const cartCountElement = document.querySelector('.items'); 
+
+    if (cartCountElement) {
+        const itemText = count === 1 ? 'item' : (count >= 2 && count <= 4 ? 'items' : 'items');
+        cartCountElement.textContent = `${count} ${itemText}`;
+    };
+};
 
 
 
