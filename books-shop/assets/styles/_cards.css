@@ -68,6 +68,8 @@
 
 .price {
     position: relative;
+    display: flex;
+    justify-content: center;
     transform: translateY(-45px);
     width: 58px;
     height: 28px;

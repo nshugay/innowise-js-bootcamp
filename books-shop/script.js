@@ -318,6 +318,7 @@ window.addEventListener('load', () => {
     updateCartIndicator();
 });
 
+
 const appendCards = (dataArray, container) => {
     container.innerHTML = '';
     
@@ -327,6 +328,85 @@ const appendCards = (dataArray, container) => {
     });
 };
 
+// переменные разных контейнеров
+const topRatedContainer = document.querySelector('#top-rated');
+const ourSuggestionContainer = document.querySelector('#our-suggestion');
+const mostPopularContainer = document.querySelector('#most-popular');
+const bestSellerContainer = document.querySelector('#best-seller-books');
+const newReleasesContainer = document.querySelector('#new-releases');
+
+const currentYear = new Date().getFullYear();
+
+// функция для инициализации карусели
+const initializeCarousel = (container) => {
+    const indicatorsContainer = container.closest('.carousel__container')?.querySelector('.carousel__box');
+    indicatorsContainer.innerHTML = ''; 
+
+    const cards = container.querySelectorAll('.card');
+
+    cards.forEach((_, index) => {
+        const dot = document.createElement('li'); // маркер под каждую новую карточку
+        dot.classList.add('controls__icon');
+
+        if (index === 0) 
+            dot.classList.add('control_active');
+
+        dot.dataset.slide = index;
+        indicatorsContainer.appendChild(dot);
+    });
+
+    const dots = indicatorsContainer.querySelectorAll('.controls__icon');
+
+    let currentSlide = 0;
+
+    const goToSlide = (slideIndex) => {
+        if (slideIndex < 0 || slideIndex >= cards.length) return;
+        currentSlide = slideIndex;
+
+        const cardWidth = cards[0].offsetWidth;
+        container.style.transform = `translateX(-${currentSlide * cardWidth}px)`;
+
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('control_active', i === currentSlide);
+        });
+    };
+
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => goToSlide(index));
+    });
+
+    // инициализируем слайд на 0
+    goToSlide(0);
+};
+
+if (window.location.pathname.endsWith('explore.html')) {
+    // фильтры для каждого контейнера 
+    const newReleasesBooks = books.filter(book => book.year === currentYear);  // новые издания: год = текущий
+    const topRatedBooks = books.filter(book => book.stars >= 4);  // топ-рейтинговые >= 4
+    const ourSuggestionBooks = books.filter(book => book.price < 20);  // цена < 20 
+
+    appendCards(newReleasesBooks, newReleasesContainer);
+    appendCards(topRatedBooks, topRatedContainer);
+    appendCards(ourSuggestionBooks, ourSuggestionContainer);
+    appendCards(books, mostPopularContainer);
+
+    initializeCarousel(newReleasesContainer);
+    initializeCarousel(topRatedContainer);
+    initializeCarousel(ourSuggestionContainer);
+    initializeCarousel(mostPopularContainer);
+
+};
+
+if (window.location.pathname.endsWith('index.html')) {
+    // фильтры для index.html
+    const newReleasesBooks = books.filter(book => book.year === currentYear);
+
+    appendCards(books, bestSellerContainer);
+    appendCards(newReleasesBooks, newReleasesContainer);
+
+    initializeCarousel(bestSellerContainer);    
+    initializeCarousel(newReleasesContainer);
+};
 
 
 });

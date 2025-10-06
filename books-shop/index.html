@@ -36,7 +36,7 @@
                             <svg class="cart" width="23" height="21" viewBox="0 0 23 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M0.672485 1.84033C0.672485 1.34167 1.07355 0.940491 1.57207 0.940491H3.27753C4.10215 0.940491 4.83306 1.42041 5.17415 2.14028H20.5795C21.5653 2.14028 22.285 3.07761 22.0263 4.02994L20.4896 9.74018C20.171 10.9175 19.1027 11.7386 17.8845 11.7386H7.07077L7.27318 12.8071C7.35564 13.2308 7.72672 13.5383 8.15777 13.5383H18.964C19.4625 13.5383 19.8636 13.9394 19.8636 14.4381C19.8636 14.9368 19.4625 15.3379 18.964 15.3379H8.15777C6.86087 15.3379 5.74763 14.4156 5.50775 13.1446L3.57364 2.98388C3.5474 2.8414 3.42371 2.74017 3.27753 2.74017H1.57207C1.07355 2.74017 0.672485 2.33899 0.672485 1.84033ZM5.47026 18.3374C5.47026 18.1011 5.5168 17.867 5.60722 17.6487C5.69763 17.4303 5.83016 17.2319 5.99723 17.0648C6.16429 16.8977 6.36263 16.7652 6.58092 16.6747C6.7992 16.5843 7.03316 16.5377 7.26943 16.5377C7.5057 16.5377 7.73966 16.5843 7.95794 16.6747C8.17623 16.7652 8.37456 16.8977 8.54163 17.0648C8.7087 17.2319 8.84123 17.4303 8.93164 17.6487C9.02206 17.867 9.0686 18.1011 9.0686 18.3374C9.0686 18.5737 9.02206 18.8078 8.93164 19.0261C8.84123 19.2445 8.7087 19.4429 8.54163 19.61C8.37456 19.7771 8.17623 19.9096 7.95794 20.0001C7.73966 20.0905 7.5057 20.1371 7.26943 20.1371C7.03316 20.1371 6.7992 20.0905 6.58092 20.0001C6.36263 19.9096 6.16429 19.7771 5.99723 19.61C5.83016 19.4429 5.69763 19.2445 5.60722 19.0261C5.5168 18.8078 5.47026 18.5737 5.47026 18.3374ZM18.0644 16.5377C18.5416 16.5377 18.9992 16.7273 19.3366 17.0648C19.674 17.4023 19.8636 17.8601 19.8636 18.3374C19.8636 18.8147 19.674 19.2725 19.3366 19.61C18.9992 19.9475 18.5416 20.1371 18.0644 20.1371C17.5873 20.1371 17.1296 19.9475 16.7922 19.61C16.4548 19.2725 16.2653 18.8147 16.2653 18.3374C16.2653 17.8601 16.4548 17.4023 16.7922 17.0648C17.1296 16.7273 17.5873 16.5377 18.0644 16.5377Z" fill="#1E1B4B"/>
                             </svg>
-                            <div class="circle"><span class="circle__num">2</span></div>
+                            <div class="circle"><span class="circle__num"></span></div>
                         </a>
                     </li>
                 </ul>
@@ -63,7 +63,7 @@
                     </h4>
                     <div class="home__input">
                         <form class="home__input-form" action="#" method="get">
-                            <button class="search" type="submit">
+                            <button class="search" type="submit"  id="search-button">
                                 <svg width="12" height="13" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M8.7292 5.42213C8.7292 7.484 7.05773 9.15547 4.99586 9.15547C2.934 9.15547 1.26253 7.484 1.26253 5.42213C1.26253 3.36026 2.934 1.6888 4.99586 1.6888C7.05773 1.6888 8.7292 3.36026 8.7292 5.42213ZM7.99196 9.17242C7.17081 9.82938 6.12921 10.2221 4.99586 10.2221C2.3449 10.2221 0.195862 8.0731 0.195862 5.42213C0.195862 2.77117 2.3449 0.622131 4.99586 0.622131C7.64683 0.622131 9.79586 2.77117 9.79586 5.42213C9.79586 6.55548 9.40312 7.59708 8.74615 8.41823L11.773 11.445C11.9812 11.6533 11.9812 11.991 11.773 12.1993C11.5647 12.4075 11.227 12.4075 11.0187 12.1993L7.99196 9.17242Z" fill="#000714" fill-opacity="0.624"/>
                                 </svg>
@@ -85,17 +85,38 @@
             </div>
         </section>
         <!--slider-->
+
+        <section class="main__carousel carousel section">
+            <div class="container carousel__container search__container" style="display:none;">
+                <div class="carousel__title">
+                    <h3 class="h3">Are you looking for these books?</h3>
+                </div>
+                <div class="carousel__wrapper">
+                    <ul class="carousel__cards" id="searched"></ul>
+                </div>
+                 <div class="carousel__gradient"></div>               
+                
+                <!--slider-scope-->
+                <ul class="carousel__box"></ul>
+                </div>
+        </section>
+
+
+
         <section class="main__carousel carousel section">
             <div class="container carousel__container">
                 <div class="carousel__title">
                     <h3 class="h3">Best Seller Books</h3>
                 </div>
                 <div class="carousel__wrapper">
-                    <ul class="carousel__cards">
+                    <ul class="carousel__cards" id="best-seller-books">
                         <!--cards-->
                         <li class="card" id="card1">
                             <img class="card__background" src="./assets/img/home1.png" alt="Card Book Image">
-                            <span class="price">$9.99</span>
+                            <span class="price">
+                                <span class="item-currency">$</span>
+                                <span class="item-price-value">9.99</span>
+                            </span>
                             <div class="card__content">
                                 <p class="card__name">Mystery of the Lost Island</p>
                                 <div class="card__book-info">
@@ -129,8 +150,11 @@
                             </button>                        
                         </li>
                         <li class="card" id="card2">
-                            <img class="card__background" src="./assets/img/home1.png" alt="Card Book Image">
-                            <span class="price">$9.99</span>
+                            <img class="card__background" src="./assets/img/book-item1.jpg" alt="Card Book Image">
+                            <span class="price">
+                                <span class="item-currency">$</span>
+                                <span class="item-price-value">9.99</span>
+                            </span>
                             <div class="card__content">
                                 <p class="card__name">Mystery of the Lost Island</p>
                                 <div class="card__book-info">
@@ -165,7 +189,10 @@
                         </li>
                         <li class="card" id="card3">
                             <img class="card__background" src="./assets/img/home1.png" alt="Card Book Image">
-                            <span class="price">$9.99</span>
+                            <span class="price">
+                                <span class="item-currency">$</span>
+                                <span class="item-price-value">9.99</span>
+                            </span>
                             <div class="card__content">
                                 <p class="card__name">Mystery of the Lost Island</p>
                                 <div class="card__book-info">
@@ -200,7 +227,10 @@
                         </li>
                         <li class="card" id="card4">
                             <img class="card__background" src="./assets/img/home1.png" alt="Card Book Image">
-                            <span class="price">$9.99</span>
+                            <span class="price">
+                                <span class="item-currency">$</span>
+                                <span class="item-price-value">9.99</span>
+                            </span>
                             <div class="card__content">
                                 <p class="card__name">Mystery of the Lost Island</p>
                                 <div class="card__book-info">
@@ -235,7 +265,10 @@
                         </li>
                         <li class="card" id="card5">
                             <img class="card__background" src="./assets/img/home1.png" alt="Card Book Image">
-                            <span class="price">$9.99</span>
+                            <span class="price">
+                                <span class="item-currency">$</span>
+                                <span class="item-price-value">9.99</span>
+                            </span>
                             <div class="card__content">
                                 <p class="card__name">Mystery of the Lost Island</p>
                                 <div class="card__book-info">
@@ -346,11 +379,14 @@
                     <h3 class="h3">New Releases</h3>
                 </div>
                 <div class="carousel__wrapper">
-                    <ul class="carousel__cards">
+                    <ul class="carousel__cards" id="new-releases">
                         <!--cards-->
                         <li class="card" id="card6">
                             <img class="card__background" src="./assets/img/home1.png" alt="Card Book Image">
-                            <span class="price">$9.99</span>
+                            <span class="price">
+                                <span class="item-currency">$</span>
+                                <span class="item-price-value">9.99</span>
+                            </span>
                             <div class="card__content">
                                 <p class="card__name">Mystery of the Lost Island</p>
                                 <div class="card__book-info">
@@ -385,7 +421,10 @@
                         </li>
                         <li class="card" id="card7">
                             <img class="card__background" src="./assets/img/home1.png" alt="Card Book Image">
-                            <span class="price">$9.99</span>
+                            <span class="price">
+                                <span class="item-currency">$</span>
+                                <span class="item-price-value">9.99</span>
+                            </span>
                             <div class="card__content">
                                 <p class="card__name">Mystery of the Lost Island</p>
                                 <div class="card__book-info">
@@ -420,7 +459,10 @@
                         </li>
                         <li class="card" id="card8">
                             <img class="card__background" src="./assets/img/home1.png" alt="Card Book Image">
-                            <span class="price">$9.99</span>
+                            <span class="price">
+                                <span class="item-currency">$</span>
+                                <span class="item-price-value">9.99</span>
+                            </span>
                             <div class="card__content">
                                 <p class="card__name">Mystery of the Lost Island</p>
                                 <div class="card__book-info">
@@ -455,7 +497,10 @@
                         </li>
                         <li class="card" id="card9">
                             <img class="card__background" src="./assets/img/home1.png" alt="Card Book Image">
-                            <span class="price">$9.99</span>
+                            <span class="price">
+                                <span class="item-currency">$</span>
+                                <span class="item-price-value">9.99</span>
+                            </span>
                             <div class="card__content">
                                 <p class="card__name">Mystery of the Lost Island</p>
                                 <div class="card__book-info">
@@ -490,7 +535,10 @@
                         </li>
                         <li class="card" id="card10">
                             <img class="card__background" src="./assets/img/home1.png" alt="Card Book Image">
-                            <span class="price">$9.99</span>
+                            <span class="price">
+                                <span class="item-currency">$</span>
+                                <span class="item-price-value">9.99</span>
+                            </span>
                             <div class="card__content">
                                 <p class="card__name">Mystery of the Lost Island</p>
                                 <div class="card__book-info">
