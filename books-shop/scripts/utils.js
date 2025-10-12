@@ -102,7 +102,7 @@ export const enableWheelScroll = (container, options) => {
             clearTimeout(resumeTimeout);
             resumeTimeout = setTimeout(() => {
                 startAutoScroll();  
-            }, 5000);
+            }, 3000);
         };
 
 

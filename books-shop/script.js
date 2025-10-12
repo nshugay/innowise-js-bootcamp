@@ -1,3 +1,5 @@
+"use strict";
+
 import { updateCartIndicator, getCart, updateCartUI, renderStars, setButtonState } from "./scripts/ui.js";
 import { setCart, debounce, filterBooksByQuery, highlightText, enableWheelScroll } from "./scripts/utils.js";
 import { books } from "./scripts/books.js";
@@ -128,7 +130,7 @@ const currentYear = new Date().getFullYear();
 
 let options = { 
     autoScroll: true, 
-    interval: 2000, 
+    interval: 3000, 
     scrollDistance: 272 
 }; 
 
