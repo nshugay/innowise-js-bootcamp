@@ -1,8 +1,7 @@
-import { updateCartIndicator, getCart, updateCartUI } from "./scripts/ui.js";
+import { updateCartIndicator, getCart, updateCartUI, renderStars, setButtonState } from "./scripts/ui.js";
 import { setCart, debounce, filterBooksByQuery, highlightText, enableWheelScroll } from "./scripts/utils.js";
 import { books } from "./scripts/books.js";
 import { SELECTORS } from "./scripts/constants.js";
-import { renderStars, setButtonState } from "./scripts/ui.js";
 import * as UI from "./scripts/ui.js";
 
 document.addEventListener('DOMContentLoaded', () => {

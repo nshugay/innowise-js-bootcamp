@@ -5,11 +5,11 @@ export { getCart }
 
 
 export const binIcon = SVGS.binSvg;
-
+export const starFilled = SVGS.starFilledSvg;
+export const starNull = SVGS.starNullSvg;
 // функция для присвоения звезд по рейтингу
 export const renderStars = (stars) => {
-    const starFilled = SVGS.starFilledSvg;
-    const starNull = SVGS.starNullSvg;
+
 
     const maxRating = 5;
     let starsHTML = '';
