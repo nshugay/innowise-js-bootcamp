@@ -40,12 +40,7 @@ Since the app uses JavaScript for DOM manipulation and localStorage, and may inv
 3. Right-click on `index.html` (or any HTML file) and select "Open with Live Server".
 4. The app will open in your browser at `http://127.0.0.1:5500` or similar.
 
-### Option 2: Using Python (if installed)
-1. Open a terminal/command prompt in the project folder.
-2. Run: `python -m http.server 8000` (for Python 3) or `python -m SimpleHTTPServer 8000` (for Python 2).
-3. Open your browser and go to `http://localhost:8000/index.html`.
-
-### Option 3: Using Node.js (if preferred)
+### Option 2: Using Node.js (if preferred)
 1. Install Node.js if not already installed.
 2. In the project folder, run: `npx http-server` (installs and runs a simple server).
 3. Open the provided URL in your browser.
@@ -79,4 +74,4 @@ This project is open-source and available under the MIT License.
 
 ## Contact
 
-If you have questions or suggestions, reach out via GitHub issues.
+If you have questions or suggestions, reach out via GitHub issues or via Telegram [@nshugay](http://t.me/nshugay).

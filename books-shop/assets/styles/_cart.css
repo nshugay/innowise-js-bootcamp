@@ -91,7 +91,7 @@
 
 .cart__price {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     font-family: var(--font-family-bold);
     color: var(--color-dark);
     font-size: 16px;
