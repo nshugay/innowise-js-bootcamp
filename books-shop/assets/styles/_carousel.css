@@ -16,13 +16,10 @@
     align-items: center;
     flex-wrap: nowrap;
     width: 100%;
-    /*max-width: 1135px;*/
-    /*height: 395px;*/
     overflow-x: auto;
     overflow-y: hidden;
-    transition: transform 0.3s ease;
+    transition: var(--transition) ease;
     scroll-behavior: smooth;
-    overscroll-behavior: smooth;
 }
 
 .carousel__title {
@@ -44,16 +41,14 @@
 
 .carousel__wrapper::-webkit-scrollbar {
     transition: var(--transition);
-    height: 6px;  
+    height: 9px;  
     cursor: pointer;
     scroll-behavior: smooth;
 }
 
 .carousel__wrapper::-webkit-scrollbar-thumb {
     background: var(--color-accent);
-    border-radius: 3px;  
-    width: 6px !important;  
-    height: 6px !important; 
+    border-radius: 5px;  
 }
 
 .carousel__wrapper::-webkit-scrollbar-thumb:hover {
@@ -83,7 +78,7 @@
     cursor: pointer;
     overflow-x: auto;
 }
-
+/*
 .control_active {
     width: 9.6px;
     height: 9.6px;
@@ -105,3 +100,4 @@
     transition: var(--transition);
     background-color: var(--color-accent);
 }
+*/

@@ -111,7 +111,7 @@ export const books = [
     
 ];
 
-
+// сет id по массиву
 books.forEach((book, index) => {
     book.id = index; 
 });

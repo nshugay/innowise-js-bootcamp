@@ -1,28 +1,15 @@
-import { updateCartIndicator } from "./scripts/cart.js";
+import { updateCartIndicator, getCart, updateCartUI } from "./scripts/ui.js";
+import { setCart, debounce, filterBooksByQuery, highlightText, enableWheelScroll } from "./scripts/utils.js";
 import { books } from "./scripts/books.js";
+import { SELECTORS } from "./scripts/constants.js";
+import { renderStars, setButtonState } from "./scripts/ui.js";
 import * as UI from "./scripts/ui.js";
 
 document.addEventListener('DOMContentLoaded', () => {
     //localStorage.removeItem('cart');
 
-// функция для присвоения звезд по рейтингу
-const renderStars = (stars) => {
-  const maxRating = 5;
-  let starsHTML = '';
-
-  for (let i = 1; i <= maxRating; i++) {
-    if (i <= stars) {
-      starsHTML += UI.starFilled;
-    } else {
-      starsHTML += UI.starNull;
-    };
-  };
-
-  return starsHTML;
-};
-
 // генерация карточек
-const generateCards = (book) => {  // book - объект с свойствами: id, title, author, price, stars, description, image, year
+const generateCards = (book) => {  
     const card = document.createElement('li');
     card.className = `card`;
     card.innerHTML = `
@@ -46,24 +33,30 @@ const generateCards = (book) => {  // book - объект с свойствам�
     const addButton = document.createElement('button');
     addButton.classList.add('card__button', 'button');
     addButton.setAttribute('data-index', book.id);
-    addButton.innerHTML = `${UI.addButtonHTML}Add To Cart`;
+
+    const cart = getCart();
+    const isInCart = cart.some(b => b.id == book.id);
+    setButtonState(addButton, isInCart); 
 
     addButton.addEventListener('click', () => { 
         const bookId = addButton.getAttribute('data-index');
-        const selectedBook = books.find(b => b.id == bookId);  // ищем книгу по id в массиве books
+        const selectedBook = books.find(b => b.id == bookId);
         if (!selectedBook) return;
 
-        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        let cart = getCart();
+        const existingIndex = cart.findIndex(b => b.id == bookId);
 
-        // проверка на дубликаты
-        if (!cart.some(b => b.id == bookId)) {
+        if (existingIndex === -1) {
+            // книга не в корзине — добавить
             cart.push(selectedBook);
-            localStorage.setItem('cart', JSON.stringify(cart));
+            setButtonState(addButton, true);
+        } else {
+            // книга в корзине — удалить
+            cart.splice(existingIndex, 1);
+            setButtonState(addButton, false);
         };
-
-        addButton.style.backgroundColor = 'var(--color-active-button)'; 
-        addButton.innerHTML = `${UI.addButtonHTML}Added To Cart`;
-        addButton.disabled = true;
+    
+        setCart(cart);
         updateCartIndicator();
     });
 
@@ -71,16 +64,24 @@ const generateCards = (book) => {  // book - объект с свойствам�
     return card;
 };
 
+const appendCards = (dataArray, container) => {
+    container.innerHTML = '';
+    
+    dataArray.forEach((book) => {  
+        const card = generateCards(book); 
+        container.append(card);
+    });
+};
 
+// генерация карточек корзины
 if (window.location.pathname.endsWith('cart.html')) {
-
     const generateCartItem = (i) => {
         const cartSection = document.querySelector('.cart__list');
         cartSection.innerHTML = '';
 
-        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const cart = getCart(); 
 
-        cart.forEach((book, i) => {
+        cart.forEach((book, index) => {
 
             const cartItem = document.createElement('li');
             cartItem.className = 'cart__list-item';
@@ -105,44 +106,32 @@ if (window.location.pathname.endsWith('cart.html')) {
 
             const deleteButton = cartItem.querySelector('.bin__wrapper'); 
             deleteButton.addEventListener('click', () => {
-                cart.splice(i, 1);
+                cart.splice(index, 1);
                 localStorage.setItem('cart', JSON.stringify(cart));
                 generateCartItem();
                 updateCartIndicator();
+                updateCartUI();
             });
         });        
     };
     
-    // localStorage.clear()
-
     window.onload = generateCartItem;
 };
 
-
-
-window.addEventListener('load', () => {
-    updateCartIndicator();
-});
-
-
-const appendCards = (dataArray, container) => {
-    container.innerHTML = '';
-    
-    dataArray.forEach((book) => {  
-        const card = generateCards(book); 
-        container.append(card);
-    });
-};
-
 // переменные разных контейнеров
-const topRatedContainer = document.querySelector('#top-rated');
-const ourSuggestionContainer = document.querySelector('#our-suggestion');
-const mostPopularContainer = document.querySelector('#most-popular');
-const bestSellerContainer = document.querySelector('#best-seller-books');
-const newReleasesContainer = document.querySelector('#new-releases');
+const topRatedContainer = document.querySelector(SELECTORS.topRatedContainer);
+const ourSuggestionContainer = document.querySelector(SELECTORS.ourSuggestionContainer);
+const mostPopularContainer = document.querySelector(SELECTORS.mostPopularContainer);
+const bestSellerContainer = document.querySelector(SELECTORS.bestSellerContainer);
+const newReleasesContainer = document.querySelector(SELECTORS.newReleasesContainer);
 
 const currentYear = new Date().getFullYear();
 
+let options = { 
+    autoScroll: true, 
+    interval: 2000, 
+    scrollDistance: 272 
+}; 
 
 if (window.location.pathname.endsWith('explore.html')) {
     // фильтры для каждого контейнера 
@@ -151,9 +140,17 @@ if (window.location.pathname.endsWith('explore.html')) {
     const ourSuggestionBooks = books.filter(book => book.price < 20);  // цена < 20 
 
     appendCards(newReleasesBooks, newReleasesContainer);
+    enableWheelScroll(newReleasesContainer.parentElement, options); 
+
     appendCards(topRatedBooks, topRatedContainer);
+    enableWheelScroll(topRatedContainer.parentElement, options);  
+
     appendCards(ourSuggestionBooks, ourSuggestionContainer);
+    enableWheelScroll(ourSuggestionContainer.parentElement, options);  
+
     appendCards(books, mostPopularContainer);
+    enableWheelScroll(mostPopularContainer.parentElement, options);  
+    
 };
 
 if (window.location.pathname.endsWith('index.html')) {
@@ -161,40 +158,17 @@ if (window.location.pathname.endsWith('index.html')) {
     const newReleasesBooks = books.filter(book => book.year === currentYear);
 
     appendCards(books, bestSellerContainer);
+    enableWheelScroll(bestSellerContainer.parentElement, options); 
+
     appendCards(newReleasesBooks, newReleasesContainer);
+    enableWheelScroll(newReleasesContainer.parentElement, options); 
 };
-
-
-
-
-
-
-// логика для поиска
-const searchResultsSection = document.querySelector('.search__container');
-const searchResultsContainer = document.getElementById('searched');
-
-const filterBooksByQuery = (query) => {
-    if (!query) return [];
-    query = query.toLowerCase();
-
-    return books.filter(book => {
-        return book.title.toLowerCase().includes(query) ||
-               book.author.toLowerCase().includes(query) ||
-               book.description.toLowerCase().includes(query);
-    });
-};
-
-// функция подсветки совпадений в тексте
-const highlightText = (text, query) => {
-    if (!query) return text;
     
-    const escapedQuery = query.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
-    const regex = new RegExp(`(${escapedQuery})`, 'gi');
-
-    return text.replace(regex, '<mark>\$1</mark>');
-};
 
 const showSearchResults = (query) => {
+    const searchResultsSection = document.querySelector(SELECTORS.searchContainer);
+    const searchResultsContainer = document.getElementById(SELECTORS.searchSection);
+
     if (!query) {
         // cкрыть контейнер 
         searchResultsSection.style.display = 'none';
@@ -202,7 +176,7 @@ const showSearchResults = (query) => {
         return;
     };
 
-    const filteredBooks = filterBooksByQuery(query);
+    const filteredBooks = filterBooksByQuery(query, books);
 
     searchResultsContainer.innerHTML = '';
 
@@ -236,18 +210,27 @@ const showSearchResults = (query) => {
         });
     };
 
+    enableWheelScroll(searchResultsContainer.parentElement, options); 
     searchResultsSection.style.display = 'block';
 };
 
 // логика для инпута
-const searchInput = document.getElementById('search-input');
+const searchInput = document.getElementById(SELECTORS.searchArea);
 
 if (searchInput) {
+    const debouncedShowResults = debounce((query) => {
+        showSearchResults(query);
+    }, 500);  
+
     searchInput.addEventListener('input', () => {
         const query = searchInput.value.trim();
-        showSearchResults(query);
+        debouncedShowResults(query);  
     });
 };
 
-    
+window.addEventListener('load', () => {
+    updateCartIndicator();
+    updateCartUI();
+});
+
 });

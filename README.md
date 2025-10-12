@@ -60,9 +60,11 @@ Once running, navigate to `index.html` for the main page, `explore.html` for bro
 - `index.html`: Main page with best sellers and new releases.
 - `explore.html`: Explore page with additional categories.
 - `cart.html`: Shopping cart page.
-- `css/`: Stylesheets (e.g., `styles.css`).
-- `js/`: JavaScript files (e.g., `app.js` with the main logic).
-- `images/`: Book images and assets.
+- `main.css`: Main style file.
+- `script.js`: Main JavaScript file.
+- `styles/`: Stylesheets.
+- `scripts/`: JavaScript files.
+- `assets/`: Book images and assets.
 
 ## Contributing
 

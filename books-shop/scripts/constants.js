@@ -1,6 +1,3 @@
-
-
-
 export const SVGS = {
     starFilledSvg: `
         <svg class="star star_filled" width="15" height="15" viewBox="0 0 15 15" fill="" xmlns="http://www.w3.org/2000/svg">
@@ -30,5 +27,8 @@ export const SELECTORS = {
     mostPopularContainer: '#most-popular',
     bestSellerContainer: '#best-seller-books',
     newReleasesContainer: '#new-releases',
+    searchContainer: '.search__container',
+    searchSection: 'searched',
+    searchArea: 'search-input',
 };
 
