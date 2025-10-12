@@ -14,12 +14,12 @@
 .carousel__wrapper {
     display: flex;
     align-items: center;
-    overflow: hidden;
     flex-wrap: nowrap;
     width: 100%;
-    /*max-width: 1135px;*/
-    /*height: 395px;*/
-    transition: transform 0.3s ease;
+    overflow-x: auto;
+    overflow-y: hidden;
+    transition: var(--transition) ease;
+    scroll-behavior: smooth;
 }
 
 .carousel__title {
@@ -32,13 +32,29 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    /*overflow: hidden;
-    flex-wrap: nowrap;*/
-    min-width: 1500px;
+    min-width: max-content;
     gap: 40px;
     padding: 2px 0;
     transition: transform 0.3s ease;
+    padding: 1rem;
 }
+
+.carousel__wrapper::-webkit-scrollbar {
+    transition: var(--transition);
+    height: 9px;  
+    cursor: pointer;
+    scroll-behavior: smooth;
+}
+
+.carousel__wrapper::-webkit-scrollbar-thumb {
+    background: var(--color-accent);
+    border-radius: 5px;  
+}
+
+.carousel__wrapper::-webkit-scrollbar-thumb:hover {
+    background: var(--color-ligth-accent);
+}
+
 
 .carousel__gradient {
     display: none;
@@ -60,8 +76,9 @@
     gap: 0px;
     margin: 15px 0;
     cursor: pointer;
+    overflow-x: auto;
 }
-
+/*
 .control_active {
     width: 9.6px;
     height: 9.6px;
@@ -83,3 +100,4 @@
     transition: var(--transition);
     background-color: var(--color-accent);
 }
+*/

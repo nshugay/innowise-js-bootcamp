@@ -27,8 +27,7 @@
     width: 760px;
     gap: 20px;
     overflow-y: auto;
-    max-height: 1700px;
-    padding: 5px 0;
+    padding: 5px 5px;
 }
 
 .cart__list-item {
@@ -91,7 +90,7 @@
 
 .cart__price {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     font-family: var(--font-family-bold);
     color: var(--color-dark);
     font-size: 16px;
@@ -120,7 +119,7 @@
     justify-content: space-between;
     align-items: flex-start;
     gap: 20px;
-    padding-bottom: 100px;
+    padding-bottom: 20px;
 }
 
 .summary__wrapper {
