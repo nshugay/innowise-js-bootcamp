@@ -19,6 +19,21 @@ Key features:
 - **Vanilla JavaScript (ES6+)**: DOM manipulation, event handling, localStorage, and carousel logic.
 - **No external libraries**: Pure JavaScript for simplicity and performance.
 
+## Setup
+
+### Prerequisites
+- Install [Node.js](https://nodejs.org/) (version 14 or higher).
+- Install json-server globally: `npm install -g json-server`.
+
+### Running the Local Server (API)
+The project uses json-server to simulate an API with data from the `db.json` file.
+
+1. Ensure that the `db.json` file is in the project root (it contains an array of books in JSON format).
+2. Start the server: `npx json-server --watch db.json --port 3000`:
+   - `--watch`: Automatically updates data when the file changes.
+   - `--port 3000`: The server will be available at `http://localhost:3000`.
+3. Test the API: Open `http://localhost:3000/books` in your browser — you should see a JSON page with your books.
+
 ## Installation
 
 1. **Clone or Download the Project**:

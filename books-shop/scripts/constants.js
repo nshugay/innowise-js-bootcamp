@@ -22,13 +22,54 @@ export const SVGS = {
 };
 
 export const SELECTORS = {
+
+    // containers
     topRatedContainer: '#top-rated',
     ourSuggestionContainer: '#our-suggestion',
     mostPopularContainer: '#most-popular',
     bestSellerContainer: '#best-seller-books',
     newReleasesContainer: '#new-releases',
+
+    // search
     searchContainer: '.search__container',
     searchSection: 'searched',
     searchArea: 'search-input',
+
+    //cards
+    bookTitle:'.card__name',
+    bookAuthorName:'.card__book-author-name',
+    bookArticle: '.card__article',
+
+    //cart
+    cartList: '.cart__list',
+    cartItem: 'cart__list-item',
+
+    bin: '.bin__wrapper',
+    binIcon: SVGS.binSvg,
+
+    indicator: '.circle__num',
+    subtotal: '.subtotal',
+    shipping: '.shipping',
+    freeShipping: '#free-shipping-value',
+    total: '.total',
+
+    cartItemsNumber: '.items',
+
+    burger: '.burger',
+    burgerLinePrimary: '.burger__line_primary',
+    burgerLineSecondary: '.burger__line_secondary',
+    navigation: '.nav__list',
+    links: '.nav__item',
+    html: 'html',
 };
 
+export const CLASSNAMES = {
+    addedToCartButton: 'added',
+
+    burgerLinePrimary: 'burger__line_primary_active',
+    burgerLineSecondary: 'burger__line_secondary_active',
+
+    navTabletActive: 'nav__list_active',
+    noScroll: 'no-scroll',
+
+};
