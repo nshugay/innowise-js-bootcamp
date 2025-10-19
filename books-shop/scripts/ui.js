@@ -1,15 +1,11 @@
 import { SVGS } from "../scripts/constants.js";
-
 import { getCart } from "../scripts/utils.js";
-export { getCart }
 
 
-export const binIcon = SVGS.binSvg;
 export const starFilled = SVGS.starFilledSvg;
 export const starNull = SVGS.starNullSvg;
 // функция для присвоения звезд по рейтингу
 export const renderStars = (stars) => {
-
 
     const maxRating = 5;
     let starsHTML = '';

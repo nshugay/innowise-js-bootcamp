@@ -1,0 +1,324 @@
+{
+  "books": [
+    {
+      "id": 0,
+      "title": "Cooking Made Easy",
+      "author": "Emily Clark",
+      "price": 19.99,
+      "stars": 4,
+      "description": "Simple and delicious recipes for everyday cooking.",
+      "image": "./assets/img/book-item1.jpg",
+      "year": 2020
+    },
+    {
+      "id": 1,
+      "title": "The Mystery of the Lost Key",
+      "author": "John Doe",
+      "price": 14.99,
+      "stars": 3,
+      "description": "A thrilling adventure mystery novel.",
+      "image": "./assets/img/book-item2.png",
+      "year": 2019
+    },
+    {
+      "id": 2,
+      "title": "Gardening for Beginners",
+      "author": "Anna Green",
+      "price": 24.99,
+      "stars": 5,
+      "description": "Step-by-step guide to starting your garden.",
+      "image": "./assets/img/book-item3.jpg",
+      "year": 2021
+    },
+    {
+      "id": 3,
+      "title": "Tech Innovations 2023",
+      "author": "Mike Tech",
+      "price": 29.99,
+      "stars": 4,
+      "description": "Latest trends in technology and innovation.",
+      "image": "./assets/img/book-item4.jpg",
+      "year": 2025
+    },
+    {
+      "id": 4,
+      "title": "Fantasy Worlds",
+      "author": "Sarah Magic",
+      "price": 17.99,
+      "stars": 5,
+      "description": "Immerse yourself in magical fantasy realms.",
+      "image": "./assets/img/book-item1.jpg",
+      "year": 2018
+    },
+    {
+      "id": 5,
+      "title": "Healthy Eating Habits",
+      "author": "Dr. Lisa Health",
+      "price": 21.99,
+      "stars": 4,
+      "description": "Tips for maintaining a balanced diet.",
+      "image": "./assets/img/book-item2.png",
+      "year": 2022
+    },
+    {
+      "id": 6,
+      "title": "History of Ancient Civilizations",
+      "author": "Prof. Alex History",
+      "price": 26.99,
+      "stars": 4,
+      "description": "Explore the wonders of ancient history.",
+      "image": "./assets/img/book-item3.jpg",
+      "year": 2020
+    },
+    {
+      "id": 7,
+      "title": "Poetry Collection",
+      "author": "Emma Verse",
+      "price": 12.99,
+      "stars": 3,
+      "description": "A beautiful collection of modern poems.",
+      "image": "./assets/img/book-item4.jpg",
+      "year": 2019
+    },
+    {
+      "id": 8,
+      "title": "Adventure in the Mountains",
+      "author": "Tom Hiker",
+      "price": 18.99,
+      "stars": 4,
+      "description": "Thrilling tales of mountain expeditions.",
+      "image": "./assets/img/book-item1.jpg",
+      "year": 2021
+    },
+    {
+      "id": 9,
+      "title": "Science Fiction Odyssey",
+      "author": "Zoe Space",
+      "price": 22.99,
+      "stars": 5,
+      "description": "Journey through futuristic worlds.",
+      "image": "./assets/img/book-item2.png",
+      "year": 2023
+    },
+    {
+      "id": 10,
+      "title": "Art and Creativity",
+      "author": "Leo Artist",
+      "price": 19.99,
+      "stars": 4,
+      "description": "Unlock your artistic potential.",
+      "image": "./assets/img/book-item3.jpg",
+      "year": 2024
+    },
+    {
+      "id": 11,
+      "title": "Business Strategies",
+      "author": "Jane CEO",
+      "price": 27.99,
+      "stars": 4,
+      "description": "Essential tips for business success.",
+      "image": "./assets/img/book-item4.jpg",
+      "year": 2022
+    },
+    {
+      "id": 12,
+      "title": "Travel Diaries",
+      "author": "Mia Wander",
+      "price": 16.99,
+      "stars": 4,
+      "description": "Inspiring stories from around the world.",
+      "image": "./assets/img/book-item1.jpg",
+      "year": 2020
+    },
+    {
+      "id": 13,
+      "title": "Mindfulness and Meditation",
+      "author": "Dr. Zen Calm",
+      "price": 23.99,
+      "stars": 5,
+      "description": "Guide to achieving inner peace through mindfulness.",
+      "image": "./assets/img/book-item2.png",
+      "year": 2021
+    },
+    {
+      "id": 14,
+      "title": "Photography Basics",
+      "author": "Cam Lens",
+      "price": 25.99,
+      "stars": 4,
+      "description": "Learn the fundamentals of digital photography.",
+      "image": "./assets/img/book-item3.jpg",
+      "year": 2022
+    },
+    {
+      "id": 15,
+      "title": "Romance Under the Stars",
+      "author": "Lily Heart",
+      "price": 15.99,
+      "stars": 3,
+      "description": "A heartwarming romance novel.",
+      "image": "./assets/img/book-item4.jpg",
+      "year": 2025
+    },
+    {
+      "id": 16,
+      "title": "Environmental Science",
+      "author": "Prof. Green Earth",
+      "price": 28.99,
+      "stars": 4,
+      "description": "Understanding climate change and sustainability.",
+      "image": "./assets/img/book-item1.jpg",
+      "year": 2023
+    },
+    {
+      "id": 17,
+      "title": "Classic Literature Revisited",
+      "author": "Oliver Page",
+      "price": 20.99,
+      "stars": 5,
+      "description": "Modern takes on timeless classics.",
+      "image": "./assets/img/book-item2.png",
+      "year": 2024
+    },
+    {
+      "id": 18,
+      "title": "Fitness for Life",
+      "author": "Coach Fit",
+      "price": 18.99,
+      "stars": 4,
+      "description": "Build strength and endurance with these workouts.",
+      "image": "./assets/img/book-item3.jpg",
+      "year": 2020
+    },
+    {
+      "id": 19,
+      "title": "Cybersecurity Essentials",
+      "author": "Hack Safe",
+      "price": 26.99,
+      "stars": 4,
+      "description": "Protect yourself in the digital age.",
+      "image": "./assets/img/book-item4.jpg",
+      "year": 2021
+    },
+    {
+      "id": 20,
+      "title": "Mythology Tales",
+      "author": "Ares Legend",
+      "price": 13.99,
+      "stars": 3,
+      "description": "Stories from ancient myths and legends.",
+      "image": "./assets/img/book-item1.jpg",
+      "year": 2025
+    },
+    {
+      "id": 21,
+      "title": "Baking Delights",
+      "author": "Baker Sweet",
+      "price": 22.99,
+      "stars": 5,
+      "description": "Recipes for cakes, cookies, and more.",
+      "image": "./assets/img/book-item2.png",
+      "year": 2022
+    },
+    {
+      "id": 22,
+      "title": "Space Exploration",
+      "author": "Astronaut Neil",
+      "price": 24.99,
+      "stars": 4,
+      "description": "The future of humanity in the cosmos.",
+      "image": "./assets/img/book-item3.jpg",
+      "year": 2025
+    },
+    {
+      "id": 23,
+      "title": "Parenting Guide",
+      "author": "Mom Wise",
+      "price": 19.99,
+      "stars": 4,
+      "description": "Tips for raising happy and healthy kids.",
+      "image": "./assets/img/book-item4.jpg",
+      "year": 2023
+    },
+    {
+      "id": 24,
+      "title": "Music Theory Basics",
+      "author": "Note Maestro",
+      "price": 17.99,
+      "stars": 3,
+      "description": "Learn to read and compose music.",
+      "image": "./assets/img/book-item1.jpg",
+      "year": 2019
+    },
+    {
+      "id": 25,
+      "title": "Wildlife Conservation",
+      "author": "Dr. Fauna Friend",
+      "price": 21.99,
+      "stars": 5,
+      "description": "Efforts to save endangered species.",
+      "image": "./assets/img/book-item2.png",
+      "year": 2024
+    },
+    {
+      "id": 26,
+      "title": "Psychology Today",
+      "author": "Mind Guru",
+      "price": 25.99,
+      "stars": 4,
+      "description": "Insights into human behavior and mental health.",
+      "image": "./assets/img/book-item3.jpg",
+      "year": 2020
+    },
+    {
+      "id": 27,
+      "title": "Home Decor Ideas",
+      "author": "Design Home",
+      "price": 14.99,
+      "stars": 4,
+      "description": "Transform your space with style.",
+      "image": "./assets/img/book-item4.jpg",
+      "year": 2021
+    },
+    {
+      "id": 28,
+      "title": "Thriller Suspense",
+      "author": "Shadow Writer",
+      "price": 16.99,
+      "stars": 3,
+      "description": "Edge-of-your-seat thriller novel.",
+      "image": "./assets/img/book-item1.jpg",
+      "year": 2022
+    },
+    {
+      "id": 29,
+      "title": "Nutrition Science",
+      "author": "Dr. Nutrient",
+      "price": 23.99,
+      "stars": 5,
+      "description": "The science behind healthy eating.",
+      "image": "./assets/img/book-item2.png",
+      "year": 2023
+    },
+    {
+      "id": 30,
+      "title": "Ancient Philosophy",
+      "author": "Sage Think",
+      "price": 27.99,
+      "stars": 4,
+      "description": "Wisdom from philosophers of old.",
+      "image": "./assets/img/book-item3.jpg",
+      "year": 2018
+    },
+    {
+      "id": 31,
+      "title": "DIY Projects",
+      "author": "Craft Master",
+      "price": 20.99,
+      "stars": 4,
+      "description": "Fun and easy do-it-yourself ideas.",
+      "image": "./assets/img/book-item4.jpg",
+      "year": 2024
+    }
+  ]
+}
