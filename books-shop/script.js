@@ -7,7 +7,7 @@ import {
     debounce,
     filterBooksByQuery,
     highlightText,
-    enableWheelScroll
+    enableWheelScroll,
 } from './scripts/utils.js';
 
 // ui-функции
@@ -15,13 +15,12 @@ import {
     updateCartIndicator,
     updateCartUI,
     renderStars,
-    setButtonState
+    setButtonState,
+    initBurgerMenu,
 } from './scripts/ui.js';
 
-
 // константы
-import { SELECTORS, SVGS } from './scripts/constants.js';
-
+import { SELECTORS } from './scripts/constants.js';
 
 // глобальная переменная для книг
 let books = [];
@@ -30,21 +29,20 @@ let books = [];
 async function loadBooksFromAPI() {
     try {
         const response = await fetch('http://localhost:3000/books'); // внешний api
-        if (!response.ok) throw new Error('API не доступен');
+        if (!response.ok) throw new Error('API is unavaible');
 
         const data = await response.json();
         return data;
 
     } catch (error) {
-
         console.warn('Ошибка загрузки книг из API:', error);
         return [];
-
     };
 };
 
 // асинхронная функция инициализации
 async function init() {
+    // сетаем для обеих страниц с каруселью
     if (!window.location.pathname.endsWith('cart.html')) {
         books = await loadBooksFromAPI();
     };
@@ -112,16 +110,17 @@ async function init() {
         });
     };
 
+    // генерация карточек корзины
     if (window.location.pathname.endsWith('cart.html')) {
         const generateCartItem = (i) => {
-            const cartSection = document.querySelector('.cart__list');
+            const cartSection = document.querySelector(SELECTORS.cartList);
             cartSection.innerHTML = '';
 
             const cart = getCart(); 
 
             cart.forEach((book, index) => {
                 const cartItem = document.createElement('li');
-                cartItem.className = 'cart__list-item';
+                cartItem.className = SELECTORS.cartItem;
                 cartItem.innerHTML = `
                 <img class="order__image" src="${book.image}" alt="${book.title}">
                 <div class="cart__list-item-info">
@@ -135,17 +134,20 @@ async function init() {
                             <span class="item-currency-value">$</span>
                             <span class="item-price-value">${book.price.toFixed(2)}</span>
                         </span>
-                            <div class="bin__wrapper">${SVGS.binSvg}</div>
+                            <div class="bin__wrapper">${SELECTORS.binIcon}</div>
                         </div>
                     </div>
                 `;
                 cartSection.appendChild(cartItem);
 
-                const deleteButton = cartItem.querySelector('.bin__wrapper'); 
+                const deleteButton = cartItem.querySelector(SELECTORS.bin); 
                 deleteButton.addEventListener('click', () => {
+
+                    // удаление книг по id
                     const updatedCart = cart.filter(item => item.id !== book.id);
-                    localStorage.setItem('cart', JSON.stringify(updatedCart));
-                    
+                    setCart(updatedCart);
+
+                    // обновление счетчиков с изменением корзины с удалением элемента
                     generateCartItem();
                     updateCartIndicator();
                     updateCartUI();
@@ -219,9 +221,9 @@ async function init() {
                 const card = generateCards(book);
                 searchResultsContainer.appendChild(card);
 
-                const titleEl = card.querySelector('.card__name');
-                const authorEl = card.querySelector('.card__book-author-name');
-                const descEl = card.querySelector('.card__article');
+                const titleEl = card.querySelector(SELECTORS.bookTitle);
+                const authorEl = card.querySelector(SELECTORS.bookAuthorName);
+                const descEl = card.querySelector(SELECTORS.bookArticle);
 
                 if (titleEl) {
                     if (!titleEl.dataset.original) titleEl.dataset.original = titleEl.textContent;
@@ -264,6 +266,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 window.addEventListener('load', () => {
+    initBurgerMenu();
     updateCartIndicator();
     updateCartUI();
 });

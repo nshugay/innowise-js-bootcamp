@@ -32,13 +32,13 @@
     },
     {
       "id": 3,
-      "title": "Tech Innovations 2023",
+      "title": "Tech Innovations 2024",
       "author": "Mike Tech",
       "price": 29.99,
       "stars": 4,
       "description": "Latest trends in technology and innovation.",
       "image": "./assets/img/book-item4.jpg",
-      "year": 2025
+      "year": 2024
     },
     {
       "id": 4,
@@ -155,7 +155,7 @@
       "title": "Romance Under the Stars",
       "author": "Lily Heart",
       "price": 15.99,
-      "stars": 3,
+      "stars": 0,
       "description": "A heartwarming romance novel.",
       "image": "./assets/img/book-item4.jpg",
       "year": 2025
@@ -205,7 +205,7 @@
       "title": "Mythology Tales",
       "author": "Ares Legend",
       "price": 13.99,
-      "stars": 3,
+      "stars": 0,
       "description": "Stories from ancient myths and legends.",
       "image": "./assets/img/book-item1.jpg",
       "year": 2025
@@ -218,14 +218,14 @@
       "stars": 5,
       "description": "Recipes for cakes, cookies, and more.",
       "image": "./assets/img/book-item2.png",
-      "year": 2022
+      "year": 2025
     },
     {
       "id": 22,
       "title": "Space Exploration",
       "author": "Astronaut Neil",
       "price": 24.99,
-      "stars": 4,
+      "stars": 5,
       "description": "The future of humanity in the cosmos.",
       "image": "./assets/img/book-item3.jpg",
       "year": 2025

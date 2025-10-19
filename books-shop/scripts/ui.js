@@ -1,113 +1,170 @@
-import { SVGS } from "../scripts/constants.js";
-import { getCart } from "../scripts/utils.js";
+// cart.js (оптимизированный и сокращенный код с сохранением всех проверок и функциональности)
 
+import { SVGS, CLASSNAMES, SELECTORS } from '../scripts/constants.js';
+import { getCart } from '../scripts/utils.js';
 
 export const starFilled = SVGS.starFilledSvg;
 export const starNull = SVGS.starNullSvg;
+
 // функция для присвоения звезд по рейтингу
 export const renderStars = (stars) => {
-
-    const maxRating = 5;
-    let starsHTML = '';
-
-    for (let i = 1; i <= maxRating; i++) {
-        if (i <= stars) {
-        starsHTML += starFilled;
-        } else {
-        starsHTML += starNull;
-        };
+    if (typeof stars !== 'number' || isNaN(stars) || stars < 0) {
+        console.warn('renderStars: invalid stars, defaulting to 0');
+        stars = 0; // по дефолту, если рейтинг не определен неявно
     };
 
-  return starsHTML;
+    try {
+        return Array.from({ length: 5 }, (_, i) => i < stars ? starFilled : starNull).join(''); // рендеринг по условию без цикла
+    } catch (e) {
+        console.error('Error rendering stars:', e);
+        return '';
+    }
 };
 
 // сетаем состояние кнопки по клику
 export const setButtonState = (button, isAdded) => {
-    const cartIcon = SVGS.addButtonSvg;
+    if (!button || !(button instanceof Element)) {
+        console.warn('setButtonState: invalid button');
+        return;
+    };
 
-    if (isAdded) {
-        button.innerHTML = `${cartIcon}Added To Cart`;
-        button.classList.add('added');
-    } else {
-        button.innerHTML = `${cartIcon}Add To Cart`;
-        button.classList.remove('added');
+    if (typeof isAdded !== 'boolean') {
+        console.warn('setButtonState: isAdded not boolean, defaulting to false');
+        isAdded = false;
+    };
+
+    try {
+        button.innerHTML = `${SVGS.addButtonSvg}${isAdded ? 'Added To Cart' : 'Add To Cart'}`;
+        button.classList.toggle(CLASSNAMES.addedToCartButton, isAdded);
+    } catch (e) {
+        console.error('Error setting button state:', e);
     };
 };
 
 // цифра в хедере
 export const updateCartIndicator = () => {
-  const cart = getCart();  // Замените JSON.parse на getCart()
-  const totalQuantity = cart.length;
+    try {
+        const cart = getCart();
 
-  const indicator = document.querySelector('.circle__num');
-  if (indicator) {
-    indicator.textContent = totalQuantity;
-  };
+        if (!Array.isArray(cart)) {
+            console.warn('updateCartIndicator: cart not array');
+            return;
+        };
+
+        const indicator = document.querySelector(SELECTORS.indicator);
+
+        if (indicator) indicator.textContent = cart.length;
+
+        else console.warn('updateCartIndicator: indicator not found');
+    } catch (e) {
+        console.error('Error updating cart indicator:', e);
+    };
 };
 
 // счетчики в корзине
 export const updateCartUI = () => {
-  updateTotalSum();
-  updateCartCount();
+    try {
+        updateTotalSum();
+        updateCartCount();
+    } catch (e) {
+        console.error('Error updating cart UI:', e);
+    }
 };
 
-// функция для обновления итога покупки с учетом shopping
+// функция для обновления итога покупки с учетом shipping
 const updateTotalSum = () => {
-    const cart = getCart(); 
+    try {
+        const cart = getCart();
 
-    // рассчёт промежуточной суммы (subtotal)
-    const subTotalSum = cart.reduce((sum, book) => sum + (book.price || 0), 0);
-    const subTotalElement = document.querySelector('.subtotal'); 
-    
-    if (subTotalElement) {
-        subTotalElement.textContent = `$${subTotalSum.toFixed(2)}`;
-    };
+        if (!Array.isArray(cart)) {
+            console.warn('updateTotalSum: cart not array');
+            return;
+        };
 
-    // получение стоимости доставки: по умолчанию 9.99$ (сетаем динамически)
-    const shippingElement = document.querySelector('.shipping');
-    let shippingCost = 9.99; 
+        const subTotalSum = cart.reduce((sum, book) => sum + (book?.price || 0), 0);
 
-    // получение порога для бесплатной доставки
-    const freeShipElement = document.querySelector('#free-shipping-value');
-    let freeShipValue = 0;  // если не найден, всегда платная доставка
+        const subTotalElement = document.querySelector(SELECTORS.subtotal);
 
-    if (freeShipElement) {
-        freeShipValue = parseFloat(freeShipElement.textContent.replace(/[^\d.-]/g, '')) || 0;
-    };
+        if (subTotalElement) subTotalElement.textContent = `$${subTotalSum.toFixed(2)}`;
 
-    // логика переключения доставки
-    if (subTotalSum > freeShipValue) {
-        shippingCost = 0;  
-    } else {
-        shippingCost = 9.99;  
-    };
+        const shippingElement = document.querySelector(SELECTORS.shipping);
+        const freeShipElement = document.querySelector(SELECTORS.freeShipping);
 
-    // oбновление текста элемента доставки для синхронизации UI
-    if (shippingElement) {
-        shippingElement.textContent = `$${shippingCost.toFixed(2)}`;
-    };
+        let freeShipValue = 0;
 
-    // pассчёт итоговой суммы
-    const total = subTotalSum + shippingCost;
-    const totalElement = document.querySelector('.total');
-    
-    if (totalElement) {
-        totalElement.textContent = `$${total.toFixed(2)}`;
+        if (freeShipElement?.textContent) {
+            try {
+                freeShipValue = parseFloat(freeShipElement.textContent.replace(/[^\d.-]/g, '')) || 0;
+            } catch (e) {
+                console.error('Error parsing free shipping:', e);
+            };
+        };
+
+        const shippingCost = subTotalSum > freeShipValue ? 0 : 9.99;
+        if (shippingElement) shippingElement.textContent = `$${shippingCost.toFixed(2)}`;
+
+        const total = subTotalSum + shippingCost;
+        const totalElement = document.querySelector(SELECTORS.total);
+
+        if (totalElement) totalElement.textContent = `$${total.toFixed(2)}`;
+    } catch (e) {
+        console.error('Error updating total sum:', e);
     };
 };
 
 // функция для обновления счетчика товаров в корзине
 const updateCartCount = () => {
-    const cart = getCart(); 
-    const count = cart.length;
-    
-    const cartCountElement = document.querySelector('.items'); 
-
-    if (cartCountElement) {
-        const itemText = count === 1 ? 'item' : 'items';
-        cartCountElement.textContent = `${count} ${itemText}`;
-    };
+    try {
+        const cart = getCart();
+        if (!Array.isArray(cart)) {
+            console.warn('updateCartCount: cart not array');
+            return;
+        };
+        const cartCountElement = document.querySelector(SELECTORS.cartItemsNumber);
+        if (cartCountElement) cartCountElement.textContent = `${cart.length} ${cart.length === 1 ? 'item' : 'items'}`;
+        else console.warn('updateCartCount: element not found');
+    } catch (e) {
+        console.error('Error updating cart count:', e);
+    }
 };
 
+// burger
+const burgerToCross = (burgerLinePrimary, burgerLineSecondary) => {
+    burgerLinePrimary.classList.toggle('burger__line_primary_active');
+    burgerLineSecondary.classList.toggle('burger__line_secondary_active');
+};
 
+const crossToBurger = (burgerLinePrimary, burgerLineSecondary) => {
+    burgerLinePrimary.classList.remove('burger__line_primary_active');
+    burgerLineSecondary.classList.remove('burger__line_secondary_active');
+};
 
+const openNavigation = (navigation, html, burgerLinePrimary, burgerLineSecondary) => {
+    burgerToCross(burgerLinePrimary, burgerLineSecondary);
+    navigation.classList.toggle('nav__list_active');
+    html.classList.toggle('no-scroll');
+};
+
+const closeNavigation = (navigation, html, burgerLinePrimary, burgerLineSecondary) => {
+    crossToBurger(burgerLinePrimary, burgerLineSecondary);
+    navigation.classList.remove('nav__list_active');
+    html.classList.remove('no-scroll');
+};
+
+// экспорт функции инициализации бургер-меню
+export const initBurgerMenu = () => {
+    // burger
+    const burger = document.querySelector(SELECTORS.burger);
+    const burgerLinePrimary = document.querySelector(SELECTORS.burgerLinePrimary);
+    const burgerLineSecondary = document.querySelector(SELECTORS.burgerLineSecondary);
+    // nav
+    const navigation = document.querySelector(SELECTORS.navigation);
+    const links = document.querySelectorAll(SELECTORS.links);
+    const html = document.querySelector(SELECTORS.html);
+
+    burger.addEventListener('click', () => openNavigation(navigation, html, burgerLinePrimary, burgerLineSecondary));
+
+    navigation.addEventListener('click', () => closeNavigation(navigation, html, burgerLinePrimary, burgerLineSecondary));
+    links.forEach(link => link.addEventListener('click', () => closeNavigation(navigation, html, burgerLinePrimary, burgerLineSecondary)));
+
+};
