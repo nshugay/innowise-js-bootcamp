@@ -11,6 +11,7 @@
 @import url(./assets/styles/_footer.css);
 @import url(./assets/styles/_findexplore.css);
 @import url(./assets/styles/_cart.css);
+@import url(./assets/styles/_burger.css);
 @import url(./assets/styles/_media.css);
 
 /*
@@ -38,6 +39,14 @@
 
   --box-shadow: 0px 5px 6px -7px rgba(34, 60, 80, 0.45);
 }
+
+
+
+mark {
+    background-color: rgba(248, 109, 167, 0.5); 
+    font-weight: bold;
+}
+
 
 /*
   Fonts
@@ -198,9 +207,8 @@ input {
     }
 }
 
-.card__button:focus,
-.card__button:active {
-    background: var(--color-active-button);
+.added {
+    background: var(--color-active-button) !important;
 }
 
 /*
