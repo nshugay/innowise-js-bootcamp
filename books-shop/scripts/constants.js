@@ -65,5 +65,11 @@ export const SELECTORS = {
 
 export const CLASSNAMES = {
     addedToCartButton: 'added',
-}
 
+    burgerLinePrimary: 'burger__line_primary_active',
+    burgerLineSecondary: 'burger__line_secondary_active',
+
+    navTabletActive: 'nav__list_active',
+    noScroll: 'no-scroll',
+
+};

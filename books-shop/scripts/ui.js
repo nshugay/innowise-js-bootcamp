@@ -1,6 +1,10 @@
 // cart.js (оптимизированный и сокращенный код с сохранением всех проверок и функциональности)
+import { 
+    SVGS, 
+    CLASSNAMES, 
+    SELECTORS 
+} from '../scripts/constants.js';
 
-import { SVGS, CLASSNAMES, SELECTORS } from '../scripts/constants.js';
 import { getCart } from '../scripts/utils.js';
 
 export const starFilled = SVGS.starFilledSvg;
@@ -8,6 +12,7 @@ export const starNull = SVGS.starNullSvg;
 
 // функция для присвоения звезд по рейтингу
 export const renderStars = (stars) => {
+    
     if (typeof stars !== 'number' || isNaN(stars) || stars < 0) {
         console.warn('renderStars: invalid stars, defaulting to 0');
         stars = 0; // по дефолту, если рейтинг не определен неявно
@@ -18,7 +23,7 @@ export const renderStars = (stars) => {
     } catch (e) {
         console.error('Error rendering stars:', e);
         return '';
-    }
+    };
 };
 
 // сетаем состояние кнопки по клику
@@ -120,35 +125,37 @@ const updateCartCount = () => {
             console.warn('updateCartCount: cart not array');
             return;
         };
+
         const cartCountElement = document.querySelector(SELECTORS.cartItemsNumber);
+
         if (cartCountElement) cartCountElement.textContent = `${cart.length} ${cart.length === 1 ? 'item' : 'items'}`;
-        else console.warn('updateCartCount: element not found');
+
     } catch (e) {
         console.error('Error updating cart count:', e);
-    }
+    };
 };
 
 // burger
 const burgerToCross = (burgerLinePrimary, burgerLineSecondary) => {
-    burgerLinePrimary.classList.toggle('burger__line_primary_active');
-    burgerLineSecondary.classList.toggle('burger__line_secondary_active');
+    burgerLinePrimary.classList.toggle(CLASSNAMES.burgerLinePrimary);
+    burgerLineSecondary.classList.toggle(CLASSNAMES.burgerLineSecondary);
 };
 
 const crossToBurger = (burgerLinePrimary, burgerLineSecondary) => {
-    burgerLinePrimary.classList.remove('burger__line_primary_active');
-    burgerLineSecondary.classList.remove('burger__line_secondary_active');
+    burgerLinePrimary.classList.remove(CLASSNAMES.burgerLinePrimary);
+    burgerLineSecondary.classList.remove(CLASSNAMES.burgerLineSecondary);
 };
 
 const openNavigation = (navigation, html, burgerLinePrimary, burgerLineSecondary) => {
     burgerToCross(burgerLinePrimary, burgerLineSecondary);
-    navigation.classList.toggle('nav__list_active');
-    html.classList.toggle('no-scroll');
+    navigation.classList.toggle(CLASSNAMES.navTabletActive);
+    html.classList.toggle(CLASSNAMES.noScroll);
 };
 
 const closeNavigation = (navigation, html, burgerLinePrimary, burgerLineSecondary) => {
     crossToBurger(burgerLinePrimary, burgerLineSecondary);
-    navigation.classList.remove('nav__list_active');
-    html.classList.remove('no-scroll');
+    navigation.classList.remove(CLASSNAMES.navTabletActive);
+    html.classList.remove(CLASSNAMES.noScroll);
 };
 
 // экспорт функции инициализации бургер-меню
@@ -166,5 +173,4 @@ export const initBurgerMenu = () => {
 
     navigation.addEventListener('click', () => closeNavigation(navigation, html, burgerLinePrimary, burgerLineSecondary));
     links.forEach(link => link.addEventListener('click', () => closeNavigation(navigation, html, burgerLinePrimary, burgerLineSecondary)));
-
 };

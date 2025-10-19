@@ -32,8 +32,8 @@ async function loadBooksFromAPI() {
         if (!response.ok) throw new Error('API is unavaible');
 
         const data = await response.json();
+        
         return data;
-
     } catch (error) {
         console.warn('Ошибка загрузки книг из API:', error);
         return [];
@@ -261,7 +261,7 @@ async function init() {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-    // localStorage.removeItem('cart'); 
+    //localStorage.removeItem('cart'); 
     init(); 
 });
 
