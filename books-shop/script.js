@@ -32,7 +32,6 @@ async function loadBooksFromAPI() {
         if (!response.ok) throw new Error('API is unavaible');
 
         const data = await response.json();
-        
         return data;
     } catch (error) {
         console.warn('Ошибка загрузки книг из API:', error);
@@ -215,7 +214,7 @@ async function init() {
         searchResultsContainer.innerHTML = '';
 
         if (filteredBooks.length === 0) {
-            searchResultsContainer.innerHTML = `<li class="h3 oops">Oops! Nothing found for your request :( <br> <span class="oops__try">Try searching using other words.</span></li>`;
+            searchResultsContainer.innerHTML = `<li class="h3 oops">Oops! <br> <span class="oops__try"> Nothing found for your request :( Try searching using other words.</span></li>`;
         } else {
             filteredBooks.forEach(book => {
                 const card = generateCards(book);

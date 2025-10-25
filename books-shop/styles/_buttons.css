@@ -1,0 +1,79 @@
+
+/*
+  Basic Buttons
+*/
+
+.button {
+    outline: none;
+    border: none;
+    border-radius: 4px;
+    color: var(--color-light);
+}
+
+.card__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background: var(--color-dark);
+    height: 32px;
+    font-family: var(--font-family-base);
+    font-size: 13.8px;
+    user-select: none;
+}
+
+.explore__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    color: var(--color-light);
+    background-color: var(--color-accent);
+    height: 32px;
+    width: 108px;
+    font-family: var(--font-family-base);
+    font-size: 13.8px;
+}
+
+.explore__button a {
+    color: var(--color-light);
+}
+
+.button { 
+    transition: var(--transition);
+}
+
+.cart__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background: var(--color-dark);
+    height: 32px;
+    width: 100%;
+    font-family: var(--font-family-base);
+    font-size: 13.8px;
+}
+
+.cart__button:active,
+.cart__button:focus {
+    background: var(--color-active-button);
+    transform: translateY(-0.2rem);
+}
+
+
+@media (hover: hover) {         
+    .cart__button:hover {
+        background: var(--color-active-button);
+        transform: translateY(-0.2rem);
+    }
+
+    .explore__button:hover {
+        background: var(--color-light-accent);
+        transform: translateY(-0.2rem);
+    }
+}
+
+.added {
+    background: var(--color-active-button) !important;
+}

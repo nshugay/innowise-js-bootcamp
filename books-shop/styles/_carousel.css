@@ -52,9 +52,8 @@
 }
 
 .carousel__wrapper::-webkit-scrollbar-thumb:hover {
-    background: var(--color-ligth-accent);
+    background: var(--color-light-accent);
 }
-
 
 .carousel__gradient {
     display: none;
@@ -78,26 +77,3 @@
     cursor: pointer;
     overflow-x: auto;
 }
-/*
-.control_active {
-    width: 9.6px;
-    height: 9.6px;
-    border-radius: 100%;
-    margin: 6px;
-    background-color: var(--color-accent) !important;
-}
-
-.controls__icon {
-    width: 9.6px;
-    height: 9.6px;
-    border-radius: 100%;
-    background-color: var(--color-unfilled-stars);
-    margin: 6px;
-}
-
-.controls__icon:hover,
-.controls__icon:active {
-    transition: var(--transition);
-    background-color: var(--color-accent);
-}
-*/

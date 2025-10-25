@@ -19,7 +19,7 @@
 }
 
 .card:hover .card__button {
-    background: var(--color-ligth-accent);
+    background: var(--color-light-accent);
 }
 
 .card:hover .card__button:active,
@@ -88,3 +88,16 @@
     line-height: 24px;
     letter-spacing: 0%;
 }
+
+/*
+  Stars
+*/
+
+.star_filled path {
+    fill: var(--color-filled-stars);
+}
+
+.star_unfilled path {
+    fill: var(--color-unfilled-stars);
+}
+

@@ -1,0 +1,55 @@
+/*
+  Basic Inputs
+*/
+
+.home__input {
+    display: flex;
+    flex-direction: row;
+    outline: none;
+    align-items: center;
+    margin: 1.5rem 0 6rem;
+}
+
+.home__input-form {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    height: 40px;
+    width: 50%;
+    border-radius: 6px;
+    border: 1px solid #00062E32;
+    background: var(--color-light);
+    font-family: var(--font-family-base);
+    color: #00071B7F;
+}
+
+.search,
+.search__item {
+    width: 15px;
+    height: 15px;
+    outline: none;
+    background: transparent;
+    border: none;
+    padding: 1px 0 0 0;
+    align-self: center;
+}
+
+.search__item {
+    margin: 0 0 10px 0;
+}
+
+.search svg path {
+    fill: #0006177f;
+}
+
+.search__item svg path {
+    fill: var(--color-accent);
+}
+
+.search__item svg path:hover {
+    fill: var(--color-light-accent);
+    transition: var(--transition);
+}

@@ -58,8 +58,8 @@ main {
 .oops {
     font-family: var(--font-family-bold);
     font-size: 32px;
-    line-height: 32px;
-    color: rgba(248, 109, 167, 0.6) !important;
+    line-height: 30px;
+    color: rgb(255, 77, 79) !important;
     text-align: flex-start;
     text-wrap: wrap !important;
 }
@@ -87,4 +87,15 @@ svg * {
 
 .unvisible {
     visibility: hidden;
+}
+
+a {
+    text-decoration-line: none;
+}
+
+input {
+    outline: none;
+    background: transparent;
+    border: none;
+    width: 100%;
 }
