@@ -61,6 +61,48 @@
     transform: translateY(-0.2rem);
 }
 
+.counter__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    outline: none;
+    background-color: transparent;
+    border: none;
+    border-radius: 50%;
+    padding: 3px;
+}
+
+.counter__button span {
+    height: 24px;
+}
+
+.counter__button:hover {
+    background-color: rgba(0, 0, 0, 0.053);
+}
+
+.counter-icon-min path {
+    stroke: rgba(0, 0, 0, 0.318);
+    stroke-width: 1.3px;
+}
+
+.counter-icon-plus path {
+    fill: rgba(0, 0, 0, 0.318);
+}
+
+.counter-icon-min:hover path {
+    stroke: var(--color-accent);
+}
+
+.counter-icon-plus:hover path {
+    fill: var(--color-accent);
+}
+
+.counter__button:disabled {
+    cursor: not-allowed;
+}
+
 
 @media (hover: hover) {         
     .cart__button:hover {

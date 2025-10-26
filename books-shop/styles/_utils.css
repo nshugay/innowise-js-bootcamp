@@ -15,7 +15,7 @@
 }
 
 /*
-Плавная загрузка страницы
+  Плавная загрузка страницы
 */
 
 @keyframes contentLoad {
@@ -27,8 +27,25 @@
   }
 }
 
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: var(--color-light);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.preloader img {
+    width: 30px;
+}
+
 /*
-Подсветка для поиска
+  Подсветка для поиска
 */
 
 mark {

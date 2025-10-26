@@ -53,3 +53,15 @@
     fill: var(--color-light-accent);
     transition: var(--transition);
 }
+
+.counter-input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--font-family-bold);
+    color: var(--color-base);
+    align-self: center;
+    text-align: center;
+    font-size: 12px;
+    line-height: 15px;
+}

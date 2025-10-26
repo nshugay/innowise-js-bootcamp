@@ -12,6 +12,10 @@
     href="./assets/img/favicon-16x16.png">
 </head>
 <body>
+    <div class="preloader" id="preloader">
+        <img src="./assets/img/spinner.gif" alt="Loading...">
+    </div>
+    
     <header class="header cart__header" id="header">
         <div class="container header__container">
             <a class="header__logo" href="./index.html">
@@ -47,12 +51,13 @@
             </nav>
         </div>
     </header>
+    
     <main class="cart__main">
         <div class="container explore__container">
             <div class="cart__content">
                 <section class="cart__aside">
                 <h3 class="h3">Your Cart</h3>
-                <p class="h4 items"><span class="items-num">2</span>&nbsp;items</p>
+                <p class="h4 items"></p>
             </section>
 
             <section class="summary">
@@ -72,7 +77,7 @@
                         <h3 class="h3">Total</h3>
                         <h3 class="h3 total__price total">$8</h3>
                     </div>
-                    <button class="cart__button button">
+                    <button type="submit" class="cart__button button">
                         Proceed to Checkout
                     </button>     
                 </div>
