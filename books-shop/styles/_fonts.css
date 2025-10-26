@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'Segoe';
-  src: url('../fonts/Segoe/SegoeUI.ttf') format('truetype');
+  src: url('../assets/fonts/Segoe/SegoeUI.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -8,7 +8,7 @@
 
 @font-face {
   font-family: 'Segoe-Light';
-  src: url('../fonts/Segoe/SegoeUI-Light.ttf') format('truetype');
+  src: url('../assets/fonts/Segoe/SegoeUI-Light.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -16,7 +16,7 @@
 
 @font-face {
   font-family: 'Segoe-Bold';
-  src: url('../fonts/Segoe/SegoeUI-Bold.ttf') format('truetype');
+  src: url('../assets/fonts/Segoe/SegoeUI-Bold.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -24,7 +24,7 @@
 
 @font-face {
   font-family: 'Arial';
-  src: url('../fonts/Arial/ArialMT.ttf') format('truetype');
+  src: url('../assets/fonts/Arial/ArialMT.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;

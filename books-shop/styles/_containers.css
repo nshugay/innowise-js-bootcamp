@@ -1,0 +1,17 @@
+/*
+  Basic Wrappers
+*/
+
+.header__container,
+.explore__container, 
+.find__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.find__container {
+    padding-top: 5rem;
+}

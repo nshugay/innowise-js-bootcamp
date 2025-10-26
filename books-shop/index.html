@@ -12,6 +12,9 @@
     href="./assets/img/favicon-16x16.png">
 </head>
 <body>
+    <div class="preloader" id="preloader">
+        <img src="./assets/img/spinner.gif" alt="Loading...">
+    </div>
     <header class="header main__header" id="header">
         <div class="container header__container">
             <a class="header__logo" href="#home">
@@ -59,7 +62,7 @@
                     </h4>
                     <div class="home__input">
                         <form class="home__input-form" action="#" method="get">
-                            <button class="search" type="submit"  id="search-button">
+                            <button type="button" class="search" type="submit"  id="search-button">
                                 <svg width="12" height="13" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M8.7292 5.42213C8.7292 7.484 7.05773 9.15547 4.99586 9.15547C2.934 9.15547 1.26253 7.484 1.26253 5.42213C1.26253 3.36026 2.934 1.6888 4.99586 1.6888C7.05773 1.6888 8.7292 3.36026 8.7292 5.42213ZM7.99196 9.17242C7.17081 9.82938 6.12921 10.2221 4.99586 10.2221C2.3449 10.2221 0.195862 8.0731 0.195862 5.42213C0.195862 2.77117 2.3449 0.622131 4.99586 0.622131C7.64683 0.622131 9.79586 2.77117 9.79586 5.42213C9.79586 6.55548 9.40312 7.59708 8.74615 8.41823L11.773 11.445C11.9812 11.6533 11.9812 11.991 11.773 12.1993C11.5647 12.4075 11.227 12.4075 11.0187 12.1993L7.99196 9.17242Z" fill="#000714" fill-opacity="0.624"/>
                                 </svg>
@@ -69,9 +72,9 @@
                     </div>
                 </div>
                 <div class="home__image">
-                   <img class="home__image1" src="./assets/img/home1.png" alt="Book Image">
-                   <img class="home__image2" src="./assets/img/home2.png" alt="Book Image">
-                   <img class="home__image3" src="./assets/img/home3.png" alt="Book Image">
+                   <img class="home__image1" src="./assets/img/home1.jpg" alt="Book Image">
+                   <img class="home__image2" src="./assets/img/home2.jpg" alt="Book Image">
+                   <img class="home__image3" src="./assets/img/home3.jpg" alt="Book Image">
                 </div>
             </div>
         </section>
@@ -115,10 +118,9 @@
                     <span class="accent-text">book here!</span>
                 </h2>
                 <h4 class="h4">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-                    Quo ad non reprehenderit. Reiciendis illo iusto incidunt distinctio exercitationem officiis dicta dolores
-                    dolorem ea! 
-                    Non saepe, voluptatum cupiditate beatae in dolore!
+                    In our bookstore, you'll find the best selection, from timeless classics to the latest bestsellers, carefully curated to inspire readers of all ages. 
+                    <br> Whether you're a fan of gripping mysteries, heartfelt romances, or insightful non-fiction, our shelves are stocked with hidden gems and award-winning titles. Enjoy a cozy atmosphere with comfortable seating, complimentary coffee, and regular author events and book clubs.
+                    <br> Find the best books for you in our store — come explore and let the magic of stories unfold!
                 </h4>
                 <div class="explore__content-table">
                     <div class="explore__content-table-item">
@@ -134,7 +136,7 @@
                         <h4 class="h4">Books Sold</h4>
                     </div>
                 </div>
-                <button class="explore__button button">
+                <button type="button" class="explore__button button">
                     <a href="./explore.html">Explore Now</a>
                 </button>    
             </div>
@@ -146,7 +148,7 @@
                 <div class="awards__content">
                     <div class="awards__content-items">
                         <h3 class="h3">2025 National Book Awards for Fiction Shortlist</h3>
-                        <button class="explore__button button">
+                        <button type="button" class="explore__button button">
                             <a href="./explore.html">Explore Now</a>
                         </button>  
                     </div>

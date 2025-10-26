@@ -23,7 +23,7 @@
     min-width: 300px;
     height: 300px;
     border-radius: 12px;
-    background-image: url('../img/findbooks.png');
+    background-image: url('../assets/img/findbooks.png');
     background-repeat: no-repeat;
     background-size: cover;
 }

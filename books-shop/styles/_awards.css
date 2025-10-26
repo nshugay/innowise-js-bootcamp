@@ -21,7 +21,7 @@
     min-width: 300px;
     height: 300px;
     border-radius: 12px;
-    background-image: url('../img/award.png');
+    background-image: url('../assets/img/award.png');
     background-repeat: no-repeat;
     background-size: contain;
 }

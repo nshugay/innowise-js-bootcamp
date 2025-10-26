@@ -11,28 +11,15 @@ Key features:
 - Horizontal scrollable carousels with navigation buttons and mouse wheel support.
 - Responsive design for mobile and desktop.
 - Cart persistence using localStorage.
+- Support for local data simulation (e.g., using `db.json` for offline testing without a server).
 
 ## Technologies Used
 
 - **HTML5**: Structure and markup.
 - **CSS3**: Styling, including custom scrollbars and responsive layouts.
-- **Vanilla JavaScript (ES6+)**: DOM manipulation, event handling, localStorage, and carousel logic.
+- **Vanilla JavaScript (ES6+)**: DOM manipulation, event handling, localStorage, carousel logic, and API simulation.
 - **No external libraries**: Pure JavaScript for simplicity and performance.
-
-## Setup
-
-### Prerequisites
-- Install [Node.js](https://nodejs.org/) (version 14 or higher).
-- Install json-server globally: `npm install -g json-server`.
-
-### Running the Local Server (API)
-The project uses json-server to simulate an API with data from the `db.json` file.
-
-1. Ensure that the `db.json` file is in the project root (it contains an array of books in JSON format).
-2. Start the server: `npx json-server --watch db.json --port 3000`:
-   - `--watch`: Automatically updates data when the file changes.
-   - `--port 3000`: The server will be available at `http://localhost:3000`.
-3. Test the API: Open `http://localhost:3000/books` in your browser — you should see a JSON page with your books.
+- **JSON-server** (optional): For simulating a backend API during development.
 
 ## Installation
 
@@ -44,46 +31,55 @@ The project uses json-server to simulate an API with data from the `db.json` fil
 2. **Requirements**:
    - A modern web browser (e.g., Chrome, Firefox, Safari).
    - No additional software needed, but a code editor like VS Code is recommended for viewing/editing.
+   - Optional: Node.js for server options.
 
 ## Running the App
 
-Since the app uses JavaScript for DOM manipulation and localStorage, and may involve file paths or potential CORS issues if run directly from the file system, it's recommended to run it through a local web server.
+The app uses JavaScript for DOM manipulation and localStorage. To avoid CORS issues when loading from the file system, run it through a local web server.
 
-### Option 1: Using VS Code Live Server Extension
+### Prerequisites
+- Install [Node.js](https://nodejs.org/) (version 14 or higher) for server options.
+
+### Running the Local Server (API Simulation)
+To mimic a real API, use json-server with `db.json`:
+
+1. Ensure `db.json` is in the `local/` folder.
+2. Start the server `npx json-server --watch db.json --port 3000` in the `local/` folder.
+   - `--watch`: Automatically updates data when the file changes.
+   - `--port 3000`: The server will be available at `http://localhost:3000`.
+3. Test the API: Open `http://localhost:3000/books` in your browser — you should see a JSON array of books.
+
+### Using VS Code Live Server Extension (Recommended for Quick Testing)
 1. Open the project folder in VS Code.
 2. Install the "Live Server" extension if not already installed (search for "Live Server" in extensions).
-3. Right-click on `index.html` (or any HTML file) and select "Open with Live Server".
-4. The app will open in your browser at `http://127.0.0.1:5500` or similar.
-
-### Option 2: Using Node.js (if preferred)
-1. Install Node.js if not already installed.
-2. In the project folder, run: `npx http-server` (installs and runs a simple server).
-3. Open the provided URL in your browser.
+3. Right-click on `index.html` and select "Open with Live Server".
+4. The app will open in your browser.
+   - If using json-server, ensure it's running on port 3000 for API calls.
 
 Once running, navigate to `index.html` for the main page, `explore.html` for browsing categories, or `cart.html` for the shopping cart.
 
 ## Usage
 
-- **Browsing Books**: View books in carousels on the main page. Use arrow buttons or mouse wheel to scroll.
+- **Browsing Books**: View books in carousels on the Home and Explore pages. Use scroll bar or mouse wheel to scroll.
 - **Searching**: Enter a query in the search bar to filter books. Results appear below with highlighted matches.
-- **Adding to Cart**: Click "Add to Cart" on a book card. The button changes to "Added to Cart".
+- **Adding to Cart**: Click "Add to Cart" on a book card.
 - **Viewing Cart**: Go to the cart page to see items, remove them, and view totals.
-- **Navigation**: Use the site menu to switch between pages.
+- **Navigation**: Use the site menu to switch between pages or burger-menu for tablets and mobiles.
 
 ## Project Structure
 
-- `index.html`: Main page with best sellers and new releases.
-- `explore.html`: Explore page with additional categories.
-- `cart.html`: Shopping cart page.
-- `main.css`: Main style file.
-- `script.js`: Main JavaScript file.
-- `styles/`: Stylesheets.
-- `scripts/`: JavaScript files.
-- `assets/`: Book images and assets.
-
-## Contributing
-
-Feel free to fork the repo, make improvements, and submit a pull request. For major changes, open an issue first to discuss.
+```
+.
+├── assets/          # Book images, icons, and other static assets
+├── local/           # Local data file (db.json for offline/API simulation)
+├── scripts/         # JavaScript files 
+├── styles/          # CSS files
+├── cart.html        # Shopping cart page
+├── explore.html     # Explore books page with categories
+├── index.html       # Main landing page with carousels
+├── main.css         # Primary stylesheet (imports styles from styles/)
+└── script.js        # Main JavaScript entry point (orchestrates app logic)
+```
 
 ## License
 
