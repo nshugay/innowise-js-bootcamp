@@ -44,7 +44,7 @@ The app uses JavaScript for DOM manipulation and localStorage. To avoid CORS iss
 To mimic a real API, use json-server with `db.json`:
 
 1. Ensure `db.json` is in the `local/` folder.
-2. Start the server `npx json-server --watch local/db.json --port 3000` or click the link in the code.
+2. Start the server `npx json-server --watch db.json --port 3000` in the `local/` folder.
    - `--watch`: Automatically updates data when the file changes.
    - `--port 3000`: The server will be available at `http://localhost:3000`.
 3. Test the API: Open `http://localhost:3000/books` in your browser — you should see a JSON array of books.

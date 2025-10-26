@@ -57,11 +57,12 @@ main {
 
 .oops {
     font-family: var(--font-family-bold);
-    font-size: 32px;
-    line-height: 30px;
+    font-size: 42px;
+    line-height: 33px;
     color: rgb(255, 77, 79) !important;
-    text-align: flex-start;
     text-wrap: wrap !important;
+    text-align: center;
+    min-width: 100%;
 }
 
 .oops__try {

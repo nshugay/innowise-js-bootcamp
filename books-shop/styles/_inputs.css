@@ -58,7 +58,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: var(--font-family-bold);
+    font-family: var(--font-family-base);
     color: var(--color-base);
     align-self: center;
     text-align: center;

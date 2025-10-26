@@ -1,3 +1,8 @@
+export const API_CONFIG = {
+    BASE_URL: 'http://localhost:3000',
+    BOOKS_ENDPOINT: '/books',
+};
+
 export const SVGS = {
     starFilledSvg: `
         <svg class="star star_filled" width="15" height="15" viewBox="0 0 15 15" fill="" xmlns="http://www.w3.org/2000/svg">
@@ -19,6 +24,16 @@ export const SVGS = {
             <path d="M6.5293 0.435791C6.24398 0.435791 6.01367 0.666104 6.01367 0.951416C6.01367 1.23673 6.24398 1.46704 6.5293 1.46704H11.6855C11.9709 1.46704 12.2012 1.23673 12.2012 0.951416C12.2012 0.666104 11.9709 0.435791 11.6855 0.435791H6.5293ZM2.23242 2.84204C1.00008 2.84204 -0.00195312 3.84407 -0.00195312 5.07642C-0.00195312 6.30876 1.00008 7.31079 2.23242 7.31079H15.4668V18.1389C15.4668 19.7494 14.1554 21.0608 12.5449 21.0608H5.66992C4.05945 21.0608 2.74805 19.7494 2.74805 18.1389V9.20142C2.74805 8.9161 2.51773 8.68579 2.23242 8.68579C1.94711 8.68579 1.7168 8.9161 1.7168 9.20142V18.1389C1.7168 20.3183 3.49055 22.092 5.66992 22.092H12.5449C14.7243 22.092 16.498 20.3183 16.498 18.1389V7.24902C17.4812 7.01527 18.2168 6.13173 18.2168 5.07642C18.2168 3.84407 17.2148 2.84204 15.9824 2.84204H2.23242ZM2.23242 3.87329H15.9824C16.6459 3.87329 17.1855 4.41298 17.1855 5.07642C17.1855 5.73985 16.6459 6.27954 15.9824 6.27954H2.23242C1.56898 6.27954 1.0293 5.73985 1.0293 5.07642C1.0293 4.41298 1.56898 3.87329 2.23242 3.87329ZM6.70117 9.71704C6.41586 9.71704 6.18555 9.94735 6.18555 10.2327V18.1389C6.18555 18.4242 6.41586 18.6545 6.70117 18.6545C6.98648 18.6545 7.2168 18.4242 7.2168 18.1389V10.2327C7.2168 9.94735 6.98648 9.71704 6.70117 9.71704ZM11.5137 9.71704C11.2284 9.71704 10.998 9.94735 10.998 10.2327V18.1389C10.998 18.4242 11.2284 18.6545 11.5137 18.6545C11.799 18.6545 12.0293 18.4242 12.0293 18.1389V10.2327C12.0293 9.94735 11.799 9.71704 11.5137 9.71704Z" fill="#52525B"/>
         </svg>
             `,
+    plusSvg: `
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none">
+            <path d="M12.8 6.99995C12.8 6.55812 12.4418 6.19995 12 6.19995C11.5581 6.19995 11.2 6.55812 11.2 6.99995V11.2H6.99995C6.55812 11.2 6.19995 11.5581 6.19995 12C6.19995 12.4418 6.55812 12.8 6.99995 12.8H11.2V17C11.2 17.4418 11.5581 17.8 12 17.8C12.4418 17.8 12.8 17.4418 12.8 17V12.8H17C17.4418 12.8 17.8 12.4418 17.8 12C17.8 11.5581 17.4418 11.2 17 11.2H12.8V6.99995Z"></path>
+        </svg>
+            `,
+    minusSvg: `
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none">
+        <path d="M7 12H17"></path>
+    </svg>
+            `,       
 };
 
 export const SELECTORS = {
@@ -40,12 +55,23 @@ export const SELECTORS = {
     bookAuthorName:'.card__book-author-name',
     bookArticle: '.card__article',
 
+    starFilled: SVGS.starFilledSvg,
+    starNull: SVGS.starNullSvg,
+
     //cart
     cartList: '.cart__list',
     cartItem: 'cart__list-item',
+ 
+    binIcon: SVGS.binSvg,
+    minIcon: SVGS.minusSvg,
+    plusIcon: SVGS.plusSvg,
 
     bin: '.bin__wrapper',
-    binIcon: SVGS.binSvg,
+    minusButton: '.counter__button:first-child',
+    plusButton: '.counter__button:last-child',
+
+    quantityInput: '.counter-input',
+    priceValue: '.item-price-value',
 
     indicator: '.circle__num',
     subtotal: '.subtotal',
@@ -61,6 +87,7 @@ export const SELECTORS = {
     navigation: '.nav__list',
     links: '.nav__item',
     html: 'html',
+
 };
 
 export const CLASSNAMES = {
@@ -71,5 +98,19 @@ export const CLASSNAMES = {
 
     navTabletActive: 'nav__list_active',
     noScroll: 'no-scroll',
-
 };
+
+export const CONTAINERS = {
+    newReleases: document.querySelector(SELECTORS.newReleasesContainer),
+    topRated: document.querySelector(SELECTORS.topRatedContainer),
+    ourSuggestion: document.querySelector(SELECTORS.ourSuggestionContainer),
+    mostPopular: document.querySelector(SELECTORS.mostPopularContainer),
+    bestSeller: document.querySelector(SELECTORS.bestSellerContainer)
+};
+
+export const OPTIONS = { 
+    autoScroll: true, 
+    interval: 3000, 
+    scrollDistance: 272 
+};
+

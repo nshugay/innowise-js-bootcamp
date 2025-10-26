@@ -179,8 +179,10 @@
         display: none;
     }
 }
-@media (width < 440px) {
-
+@media (width < 420px) {
+    .card__stars {
+        display: none;
+    }
 
     .price__wrapper {
         margin-right: 0;

@@ -1,32 +1,11 @@
-export const getCart = () => {
-    try {
-        const cartData = localStorage.getItem('cart');
-        if (!cartData || cartData === 'undefined') return [];
+import { stateManager } from '../scripts/state.js';
 
-        const cart = JSON.parse(cartData);
-        return Array.isArray(cart) ? cart : [];
-    } catch (e) {
-        console.error('Error parsing cart from localStorage:', e);
-        return [];
-    };
-};
+export const getCart = () => stateManager.getState('cart');
 
-export const setCart = (cart) => {
-    if (!Array.isArray(cart)) {
-        console.warn('setCart: cart must be an array, received:', cart);
-        return null;
-    };
-
-    try {
-        localStorage.setItem('cart', JSON.stringify(cart));
-    } catch (e) {
-        console.error('Error saving cart to localStorage:', e);
-    };
-};
+export const setCart = (cart) => stateManager.setState({ cart });
 
 export const debounce = (func, delay) => {
     if (typeof func !== 'function' || typeof delay !== 'number' || delay < 0) {
-        console.warn('debounce: invalid arguments - func must be a function, delay must be a positive number');
         return () => {};
     };
 
@@ -61,7 +40,7 @@ export const highlightText = (text, query) => {
         const regex = new RegExp(`(${escapedQuery})`, 'gi');
         return text.replace(regex, '<mark>\$1</mark>');
     } catch (e) {
-        console.error('Error in highlightText regex:', e);
+        console.error('err', e);
         return text;
     }
 };
@@ -71,13 +50,12 @@ export const enableWheelScroll = (container, options = {}) => {
         try {
             container = document.querySelector(container);
         } catch (e) {
-            console.error('Error querying container:', e);
+            console.error('err', e);
             return;
         }
     };
 
     if (!container || !(container instanceof Element)) {
-        console.warn('enableWheelScroll: invalid container');
         return;
     };
 
@@ -90,7 +68,7 @@ export const enableWheelScroll = (container, options = {}) => {
             }
         });
     } catch (e) {
-        console.error('Error adding wheel event listener:', e);
+        console.error('err', e);
         return;
     };
 
@@ -124,7 +102,7 @@ export const enableWheelScroll = (container, options = {}) => {
                         };
 
                     } catch (e) {
-                        console.error('Error in autoScroll interval:', e);
+                        console.error('err', e);
                         stopAutoScroll();
                     };
 
@@ -165,4 +143,19 @@ export const enableWheelScroll = (container, options = {}) => {
     };
 };
 
+export const updateCartItemQuantity = (book, quantityInput, priceValue, basePrice, newQuantity) => {
+    const validQuantity = Math.max(1, Math.min(99, newQuantity));
+    quantityInput.value = validQuantity;
+
+    if (priceValue) {
+        priceValue.textContent = (basePrice * validQuantity).toFixed(2);
+    };
+
+    const cart = getCart();
+    const itemIndex = cart.findIndex(item => item.id === book.id);
+    if (itemIndex !== -1) {
+        cart[itemIndex].quantity = validQuantity;
+        setCart(cart);
+    };
+};
 
