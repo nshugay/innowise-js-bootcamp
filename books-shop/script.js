@@ -25,8 +25,6 @@ const init = async () => {
 
         generateCartItems(cartListElement);
 
-        initBurgerMenu();
-
         stateManager.subscribe((newState) => {
             updateCartIndicator();
             updateCartUI();
