@@ -1,0 +1,44 @@
+
+/*
+  Colours / Shadows
+*/
+
+:root {
+    --color-light: #FFFFFF;
+    --color-dark: #18181B;
+    --color-transparent: #00071B7F;
+    --color-base: #1E1B4B;
+    --color-accent: #6366F1;
+    --color-light-accent: #818CF8;
+    --color-unfilled-stars: #C7D2FE;
+    --color-filled-stars: #84CC16;
+    --color-cards: #EEF2FF;
+    --color-home-background: #E4E4E7;
+    --color-awards-background: #FEF9C3;
+    --color-footer-background: #000000;
+    --color-explore-header-background: #E9D5FF;
+    --color-circle: #FF0000;
+    --color-active-button: rgb(42, 196, 42);
+
+    --box-shadow: 0px 5px 6px -7px rgba(34, 60, 80, 0.45);
+}
+
+/*
+  Animation
+*/
+
+:root {
+    --transition: 0.3s;
+}
+
+/*
+  Fonts
+*/
+
+:root {
+    --font-family-base: "Segoe";
+    --font-family-bold: "Segoe-Bold";
+    --font-family-footer: "Arial";
+    --font-family-light: "Segoe-Light";
+}
+

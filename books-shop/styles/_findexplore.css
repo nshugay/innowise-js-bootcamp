@@ -1,0 +1,53 @@
+
+.find {
+    background: var(--color-explore-header-background);
+    
+}
+
+.find__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 282px;
+    width: 100%;
+}
+
+.find__content-items {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: fit-content;
+}
+
+.find__image {
+    min-width: 300px;
+    height: 300px;
+    border-radius: 12px;
+    background-image: url('../assets/img/findbooks.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.find__input {
+    display: flex;
+    flex-direction: row;
+    outline: none;
+    align-items: center;
+    margin: 1.5rem 0 6rem;
+}
+
+.find__input-form {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px;
+    height: 40px;
+    width: 100%;
+    border-radius: 6px;
+    border: 1px solid #00062E32;
+    background: var(--color-light);
+    font-family: var(--font-family-base);
+    color: #00071B7F;
+}

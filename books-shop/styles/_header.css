@@ -1,0 +1,86 @@
+.header {
+    position: fixed;
+    width: 100vw;
+    z-index: 10;
+    background: radial-gradient(circle,rgba(86, 110, 227, 0) 0%, rgba(255, 255, 255, 0.9) 31%, rgba(255, 255, 255, 1) 100%);
+    box-shadow:  0px -1px 1px -1px rgba(255, 255, 255, 0.8) inset;
+}
+
+.header__container {
+    max-height: 60px;
+}
+
+/**
+  Navigation
+*/
+
+.nav__list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 2.4rem;
+}
+
+.nav__list :nth-child(3),
+.nav__list :nth-child(4) {
+    display: none;
+}
+
+.nav__list li {
+    padding: 0 3px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+}
+
+.nav__list li a {
+    color: var(--color-base);
+}
+
+.nav__item_active {
+    border-bottom: 1.8px solid var(--color-accent);
+}
+
+.nav__item_active a {
+    cursor: not-allowed; 
+}
+
+.nav__item-link:hover {
+    color: var(--color-accent);
+    transition: var(--transition);
+}
+
+/**
+  Cart Styles
+*/
+#cart-icon {
+    display: none;
+}
+
+.cart path {
+    fill: var(--color-base);
+}
+
+.cart :hover {
+    fill: var(--color-accent);
+    transition: var(--transition);
+}
+
+.circle {
+    position: relative;
+    right: 5px;
+    bottom: 5px;
+    border-radius: 8px;
+    height: 12px;
+    width: 12px;
+    background: var(--color-circle);
+    color: var(--color-light);
+    font-family: var(--font-family-bold);
+    font-size: 7px;
+    text-align: center;
+}
+
+.circle__num {
+    text-align: center;
+    width: 9px;
+    height: 9px;
+}

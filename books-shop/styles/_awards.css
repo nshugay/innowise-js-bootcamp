@@ -1,0 +1,27 @@
+
+.awards {
+    background: var(--color-awards-background);
+}
+
+.awards__content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 282px;
+}
+
+.awards__content-items {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.awards__image {
+    min-width: 300px;
+    height: 300px;
+    border-radius: 12px;
+    background-image: url('../assets/img/award.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
